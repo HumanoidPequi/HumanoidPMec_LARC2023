@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-10-29T11:29:37.932Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 OPR/91.0.4516.65" etag="8Qniz3VocwZ4HbbQyZI7" version="20.5.1" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2022-10-29T11:30:23.183Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 OPR/91.0.4516.65" etag="QwK3hcu9SNIdze2oHmlc" version="20.5.1" type="github" pages="4">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Ações Gerais">
     <mxGraphModel dx="990" dy="597" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -80,13 +80,13 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="yi9FbN4f7Iz_os_cuy81-2" value="Câmera" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="120" y="260" width="170" height="60" as="geometry" />
+          <mxGeometry x="120" y="290" width="170" height="60" as="geometry" />
         </mxCell>
         <mxCell id="yi9FbN4f7Iz_os_cuy81-4" value="Bola" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="540" y="200" width="120" height="60" as="geometry" />
+          <mxGeometry x="540" y="180" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="yi9FbN4f7Iz_os_cuy81-5" value="Gol" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="540" y="290" width="120" height="60" as="geometry" />
+          <mxGeometry x="540" y="280" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="yi9FbN4f7Iz_os_cuy81-6" value="Campo" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="540" y="390" width="120" height="60" as="geometry" />
