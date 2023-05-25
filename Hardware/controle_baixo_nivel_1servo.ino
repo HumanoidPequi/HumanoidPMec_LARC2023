@@ -2,8 +2,11 @@
 #include <actuator.h>
 #include <ros.h>
 #include <std_msgs/UInt16.h>
-#define DXL_SERIAL Serial
-const int DXL_DIR_PIN = 2; // DYNAMIXEL Shield DIR PIN
+#include <HardwareSerial.h>
+#define DXL_SERIAL Serial2
+#define RXD0 3
+#define TXD0 1 
+const int DXL_DIR_PIN = 13; // DYNAMIXEL Shield DIR PIN
 
 const uint8_t DXL_ID = 1;
 const float DXL_PROTOCOL_VERSION = 2.0;
@@ -20,7 +23,9 @@ ros::Subscriber<std_msgs::UInt16> sub("servo", servo_cb);
 
 void setup() {
   // put your setup code here, to run once:
+  Serial.begin(57600);
   dxl.begin(57600);
+  //dxl.begin(57600, SERIAL_8N1, RXD0, TXD0);
   nh.initNode();
   nh.subscribe(sub);
   // Set Port Protocol Version. This has to match with DYNAMIXEL protocol version.
