@@ -10,8 +10,8 @@ Dynamixel2Arduino dxl; //Perna direita
 Dynamixel2Arduino dxl2; //Perna esquerda
 
 //ESP32SerialPortHandler esp_dxl_port(Serial1, 25, 15, 26);
-ESP32SerialPortHandler esp_dxl_port(Serial1, 3, 1, 12);
-ESP32SerialPortHandler esp_dxl2_port(Serial2, 16, 17, 13);
+ESP32SerialPortHandler esp_dxl_port(Serial1, 3, 1, 12); //RX,TX,PIN
+ESP32SerialPortHandler esp_dxl2_port(Serial2, 16, 17, 13); //RX,TX,PIN
 
 #define LEG_ID 6 //this variable was created only to be used in for.
 #define RIGHT_ID 6 //this variable was created only to be used in for.
