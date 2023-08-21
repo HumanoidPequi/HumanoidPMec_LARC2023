@@ -21,14 +21,6 @@
 #define DXL_SERIAL Serial2
 #define JOINTS_TOTAL 20
 const int DXL_DIR_PIN = 13; // DYNAMIXEL Shield DIR PIN
-const uint8_t DXL_ID_CNT = 15;
-const uint8_t DXL_ID_LIST[JOINTS_TOTAL] = {1, 2, 3, 4, 5, 6,7, 8, 9, 10, 11, 12,19,20};
-//const uint8_t ball_tracking[DXL_ID_CNT] = {1, 2, 3, 4, 5, 6,7, 8, 9, 10, 11, 12,19,20};
-const uint8_t ID_HEAD[DXL_ID_CNT] = {19, 20};
-//const uint8_t ID_RIGHT_LEG[DXL_ID_CNT] = {1, 2, 3, 4, 5, 6};
-//const uint8_t ID_LEFT_LEG[DXL_ID_CNT] = {7, 8, 9, 10, 11, 12};
-//const uint8_t ID_RIGHT_ARM[DXL_ID_CNT] = {13, 14, 15};
-//const uint8_t ID_RIGHT_ARM[DXL_ID_CNT] = {16, 17, 18};
 const float DXL_PROTOCOL_VERSION = 1.0;
 
 #define MAX_BAUD  5
