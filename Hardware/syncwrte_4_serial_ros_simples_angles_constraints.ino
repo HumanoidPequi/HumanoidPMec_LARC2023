@@ -17,6 +17,37 @@
 
 #define DEBUG_SERIAL Serial
 
+//define id dos motores
+
+//perna direita
+const int32_t rHipYaw  =    2048; //1
+const int32_t rHipRoll  =   1024; //2
+const int32_t rHipPitch  =  2048; //3
+const int32_t rKneePitch =  2048; //4
+const int32_t rAnklePitch = 1820; //5
+const int32_t rAnkleRoll =  853;  //6
+
+//perna esquerda
+const int32_t lHipYaw   =   1593; //7
+const int32_t lHipRoll  =   2048; //8
+const int32_t lHipPitch =   2048; //9
+const int32_t lKneePitch =  2048; //10
+const int32_t lAnklePitch = 2048; //11
+const int32_t lAnkleRoll  = 2048; //12
+
+//braço direito
+const int32_t rSholderPitch = 16;   //16
+const int32_t rSholderRoll =  17;   //17
+const int32_t rElbowPitch  =  2048; //18
+
+//braço esquerdo
+const int32_t lSholderPitch = 13;   //13
+const int32_t lSholderRoll =  14;   //14
+const int32_t lElbowPitch  =  2048; //15
+
+
+
+
 const int DXL_DIR_PIN1 = 2; // pino de controle Serial1
 const int DXL_DIR_PIN2 = 9; // pino de controle Serial2
 const int DXL_DIR_PIN3 = 23; // pino de controle Serial3
@@ -139,14 +170,63 @@ DYNAMIXEL::XELInfoSyncWrite_t info_xels_sw5[DXL_ID_CNT_ARMS];
 //This namespace is required to use DYNAMIXEL Control table item name definitions
 using namespace ControlTableItem;
 
-bool joint_reversed[MARTA_QTD] = {false, false, false, false, false, false, false, false, false, false, false, false, false};
+bool joint_reversed[MARTA_QTD] = {false, false, true, true, true, true, 
+                                  false, true, false, false, true, true, false, false};
 
 //TO-DO --> ARRUMAR MINIMOS E MÁXIMOS DOS SERVOS CONSIDERANDO O ANGULO INICIAL DE CADA UM DELES
+/*
+//perna direita
+const int32_t rHipYaw     2048 //1
+const int32_t rHipRoll    1024 //2
+const int32_t rHipPitch   2048 //3
+const int32_t rKneePitch  2048 //4
+const int32_t rAnklePitch 1820 //5
+const int32_t rAnkleRoll  853 //6
+
+//perna esquerda
+const int32_t lHipYaw     1593//7
+const int32_t lHipRoll    2048 //8
+const int32_t lHipPitch   2048 //9
+const int32_t lKneePitch  2048 //10
+const int32_t lAnklePitch 2048 //11
+const int32_t lAnkleRoll  2048 //12
+
+//braço direito
+const int32_t rSholderPitch 16 //16
+const int32_t rSholderRoll 17 //17
+const int32_t rElbowPitch  2048 //18
+
+//braço esquerdo
+const int32_t lSholderPitch 13 //13
+const int32_t lSholderRoll 14 //14
+const int32_t lElbowPitch  2048 //15
+
+
+
+bool joint_reversed[MARTA_QTD] = {false, false, false, false, false, false, 
+                                  false, false, false, false, false, false, 
+                                  false, false};
+*/
+
 //TOTAL
-int32_t marta_joints[MARTA_QTD] = {853, 1820, 2048, 2048, 1024, 2048, 2048, 2048, 2048, 2048, 2048, 1593, 2048, 3076}; //last two are id 15 and 18 respectivelly
-int32_t marta_joints_initial[MARTA_QTD] = {853, 1820, 2048, 2048, 1024, 2048, 2048, 2048, 2048, 2048, 2048, 1593, 2048, 3076}; //last two are id 15 and 18 respectivelly
-unsigned int minPos[MARTA_QTD] = {1707, 1593, 1024, 1593, 1900, 1707, 1707, 1593, 1024, 1593, 1900, 1707, 1000, 0}; // angulos minimos (12Bits)
-unsigned int maxPos[MARTA_QTD] = {2389, 2503, 3076, 3076, 2503, 2389, 2389, 2503, 3076, 3076, 2503, 2389, 2500, 4095}; // angulos máximos (12Bits)
+int32_t marta_joints[MARTA_QTD] = {rAnkleRoll, rAnklePitch, rKneePitch, rHipPitch, rHipRoll, rHipYaw, 
+                                   lAnkleRoll, lAnklePitch, lKneePitch, lHipPitch, lHipRoll, lHipYaw, 
+                                   lElbowPitch, rElbowPitch}; //last two are id 15 and 18 respectivelly
+                                   
+int32_t marta_joints_initial[MARTA_QTD] = {rAnkleRoll, rAnklePitch, rKneePitch, rHipPitch, rHipRoll, rHipYaw, 
+                                           lAnkleRoll, lAnklePitch, lKneePitch, lHipPitch, lHipRoll, lHipYaw,  
+                                           lElbowPitch, rElbowPitch}; //last two are id 15 and 18 respectivelly
+                                           
+unsigned int minPos[MARTA_QTD] = {rAnkleRoll-341, rAnklePitch-455, rKneePitch-1024, rHipPitch-455, rHipRoll-148, rHipYaw-341, 
+                                  lAnkleRoll-341, lAnklePitch-455, lKneePitch-1024, lHipPitch-1024, lHipRoll-455, lHipYaw-341, 
+                                  1000, 0}; // angulos minimos (12Bits)
+                                  
+unsigned int maxPos[MARTA_QTD] = {rAnkleRoll+341, rAnklePitch+455, rKneePitch+1024, rHipPitch+1024, rHipRoll+455, rHipYaw+341, 
+                                  lAnkleRoll+341, lAnklePitch+455, lKneePitch+1024, lHipPitch+455, lHipRoll+148, lHipYaw+341, 
+                                  2500, 4095}; // angulos máximos (12Bits)
+
+//unsigned int minPos[MARTA_QTD] = {1707, 1593, 1024, 1593, 1900, 1707, 1707, 1593, 1024, 1593, 1900, 1707, 1000, 0}; // angulos minimos (12Bits)
+//unsigned int maxPos[MARTA_QTD] = {2389, 2503, 3076, 3076, 2503, 2389, 2389, 2503, 3076, 3076, 2503, 2389, 2500, 4095}; // angulos máximos (12Bits)
 
 
 //LEGS
@@ -175,10 +255,21 @@ unsigned int constrained(int32_t val, unsigned int out_min, unsigned int out_max
   return val;
 }
 
+int8_t reversed(bool reversed_joints){
+   if (reversed_joints == true){
+     return -1;
+   }
+   else{
+    return 1;
+   }
+  } 
+
 void servo_cb(const std_msgs::Int16MultiArray& cmd_msg) {
   int i;
+  int mult;
   for (i = 0; i < MARTA_QTD; i++) {
-    marta_joints[i] = constrained(marta_joints_initial[i] + convert(cmd_msg.data[i]), minPos[i], maxPos[i]);
+    mult = reversed(joint_reversed[i]);
+    marta_joints[i] = constrained(marta_joints_initial[i] + mult*convert(cmd_msg.data[i]), minPos[i], maxPos[i]);
   }
 
   for (i = 0; i < QTD; i++) {
