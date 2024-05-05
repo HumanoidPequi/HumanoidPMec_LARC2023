@@ -1,0 +1,588 @@
+<?xml version="1.0" ?>
+<robot name="martha_urdf" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find martha_urdf_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find martha_urdf_description)/urdf/martha_urdf.trans" />
+<xacro:include filename="$(find martha_urdf_description)/urdf/martha_urdf.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.00023301230905628843 0.0012322516296158577 0.08499100214486491" rpy="0 0 0"/>
+    <mass value="10.262347346770438"/>
+    <inertia ixx="0.034666" iyy="0.039401" izz="0.026137" ixy="-2.4e-05" iyz="-0.001379" ixz="-0.000121"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pescoco_1">
+  <inertial>
+    <origin xyz="-1.9042751771790962e-14 0.19022299999999184 0.2026277509657448" rpy="0 0 0"/>
+    <mass value="0.06279010878107215"/>
+    <inertia ixx="1.2e-05" iyy="3e-05" izz="2.5e-05" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.191623 0.0014" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/pescoco_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.191623 0.0014" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/pescoco_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="cabeca_v2_1">
+  <inertial>
+    <origin xyz="0.02077186078299214 -0.02509024085805456 0.029326950387914136" rpy="0 0 0"/>
+    <mass value="0.756357213438088"/>
+    <inertia ixx="0.000654" iyy="0.000615" izz="0.00063" ixy="-1e-06" iyz="0.000274" ixz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.021 0.0014 -0.219123" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/cabeca_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.021 0.0014 -0.219123" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/cabeca_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ombro_v1__1__1">
+  <inertial>
+    <origin xyz="0.0066866699241785454 1.2634886376081117e-16 -0.003200255651752304" rpy="0 0 0"/>
+    <mass value="0.06530340481504215"/>
+    <inertia ixx="2.9e-05" iyy="1.2e-05" izz="2.9e-05" ixy="-0.0" iyz="-0.0" ixz="3e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.07725 -0.0 -0.16273" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/ombro_v1__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.07725 -0.0 -0.16273" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/ombro_v1__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ombro_v1_1">
+  <inertial>
+    <origin xyz="-0.006686669924178157 8.550469700199221e-17 -0.0032002556517523872" rpy="0 0 0"/>
+    <mass value="0.06530340481504215"/>
+    <inertia ixx="2.9e-05" iyy="1.2e-05" izz="2.9e-05" ixy="-0.0" iyz="0.0" ixz="-3e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.07725 -0.0 -0.16273" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/ombro_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.07725 -0.0 -0.16273" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/ombro_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="braco_v4_1">
+  <inertial>
+    <origin xyz="2.147889647850787e-05 0.022266946865101937 -0.04944488755371926" rpy="0 0 0"/>
+    <mass value="0.7696023650502539"/>
+    <inertia ixx="0.001245" iyy="0.001246" izz="0.000145" ixy="0.0" iyz="-3e-06" ixz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.09725 0.024 -0.14823" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/braco_v4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.09725 0.024 -0.14823" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/braco_v4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="braco_v4__1__1">
+  <inertial>
+    <origin xyz="2.1478896477827858e-05 0.022266946865101802 -0.04944488755371948" rpy="0 0 0"/>
+    <mass value="0.7696023650502539"/>
+    <inertia ixx="0.001245" iyy="0.001246" izz="0.000145" ixy="0.0" iyz="-3e-06" ixz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.09725 0.024 -0.14823" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/braco_v4__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.09725 0.024 -0.14823" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/braco_v4__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="MAO_v1_1">
+  <inertial>
+    <origin xyz="0.0009999999999996123 1.8874225099496655e-14 -0.05155814136788978" rpy="0 0 0"/>
+    <mass value="0.039283886588329646"/>
+    <inertia ixx="4.5e-05" iyy="4.4e-05" izz="2e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.118 0.00176 -0.04863" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/MAO_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.118 0.00176 -0.04863" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/MAO_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="MAO_v1__1__1">
+  <inertial>
+    <origin xyz="-0.0009999999999998205 -1.9123374758733824e-14 -0.05155814136788942" rpy="0 0 0"/>
+    <mass value="0.039283886588329646"/>
+    <inertia ixx="4.5e-05" iyy="4.4e-05" izz="2e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.118 0.00176 -0.04863" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/MAO_v1__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.118 0.00176 -0.04863" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/MAO_v1__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="quadril_v2_1">
+  <inertial>
+    <origin xyz="1.4280243654241076e-14 0.0019880670365431136 -0.01689495335095709" rpy="0 0 0"/>
+    <mass value="0.07025726179192515"/>
+    <inertia ixx="4.2e-05" iyy="1.7e-05" izz="3e-05" ixy="0.0" iyz="3e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.04 0.0 0.00425" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/quadril_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.04 0.0 0.00425" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/quadril_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="quadril_v2__1__1">
+  <inertial>
+    <origin xyz="1.4259426972529354e-14 0.0019880670365431136 -0.016894953350957163" rpy="0 0 0"/>
+    <mass value="0.07025726179192515"/>
+    <inertia ixx="4.2e-05" iyy="1.7e-05" izz="3e-05" ixy="0.0" iyz="3e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.04 0.0 0.00425" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/quadril_v2__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.04 0.0 0.00425" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/quadril_v2__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="coxa_v3_1">
+  <inertial>
+    <origin xyz="1.4332694612463615e-05 -0.000678256317373848 -0.012142079982640205" rpy="0 0 0"/>
+    <mass value="0.7543759966469389"/>
+    <inertia ixx="0.000561" iyy="0.000213" izz="0.000492" ixy="0.0" iyz="0.0" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.04 -0.02215 0.03975" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/coxa_v3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.04 -0.02215 0.03975" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/coxa_v3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="coxa_v3__3__1">
+  <inertial>
+    <origin xyz="1.4332694612498309e-05 -0.0006782563173738689 -0.01214207998264031" rpy="0 0 0"/>
+    <mass value="0.7543759966469389"/>
+    <inertia ixx="0.000561" iyy="0.000213" izz="0.000492" ixy="0.0" iyz="0.0" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.04 -0.02215 0.03975" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/coxa_v3__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.04 -0.02215 0.03975" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/coxa_v3__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="canela_v3__1__1">
+  <inertial>
+    <origin xyz="0.022849341186804616 -2.7628101694453233e-09 -0.0778183303220481" rpy="0 0 0"/>
+    <mass value="0.44184444942201323"/>
+    <inertia ixx="0.000351" iyy="0.000397" izz="9.8e-05" ixy="0.0" iyz="-0.0" ixz="-4e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0626 -0.0027 0.03975" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/canela_v3__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0626 -0.0027 0.03975" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/canela_v3__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="canela_v3_1">
+  <inertial>
+    <origin xyz="0.022849341186804685 -2.762810206308197e-09 -0.07781833032204818" rpy="0 0 0"/>
+    <mass value="0.44184444942201323"/>
+    <inertia ixx="0.000351" iyy="0.000397" izz="9.8e-05" ixy="0.0" iyz="-0.0" ixz="-4e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0174 -0.0027 0.03975" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/canela_v3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0174 -0.0027 0.03975" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/canela_v3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="canela_2_v3__1__1">
+  <inertial>
+    <origin xyz="0.02210055083329665 -0.0043673782512876356 -0.05012443509922848" rpy="0 0 0"/>
+    <mass value="0.0900119088408919"/>
+    <inertia ixx="0.000124" iyy="0.000153" izz="4.2e-05" ixy="-1e-06" iyz="4e-06" ixz="-6e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.06025 -0.0027 0.14025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/canela_2_v3__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.06025 -0.0027 0.14025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/canela_2_v3__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="canela_2_v3_1">
+  <inertial>
+    <origin xyz="0.022100550833296765 -0.0043673782512876356 -0.050124435099228565" rpy="0 0 0"/>
+    <mass value="0.0900119088408919"/>
+    <inertia ixx="0.000124" iyy="0.000153" izz="4.2e-05" ixy="-1e-06" iyz="4e-06" ixz="-6e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.01975 -0.0027 0.14025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/canela_2_v3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.01975 -0.0027 0.14025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/canela_2_v3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="coxa_v3__2__1">
+  <inertial>
+    <origin xyz="-0.022614332694597186 0.01877174368158037 0.0121424987575382" rpy="0 0 0"/>
+    <mass value="0.7543759966469389"/>
+    <inertia ixx="0.000561" iyy="0.000213" izz="0.000492" ixy="-0.0" iyz="-0.0" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0169 -0.0027 0.240275" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/coxa_v3__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0169 -0.0027 0.240275" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/coxa_v3__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="coxa_v3__1__1">
+  <inertial>
+    <origin xyz="-0.022614332694597117 0.01877174368158049 0.012142498757538117" rpy="0 0 0"/>
+    <mass value="0.7543759966469389"/>
+    <inertia ixx="0.000561" iyy="0.000213" izz="0.000492" ixy="-0.0" iyz="-0.0" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0631 -0.0027 0.240275" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/coxa_v3__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0631 -0.0027 0.240275" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/coxa_v3__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pe_v4_1">
+  <inertial>
+    <origin xyz="0.0034112806849110125 -0.02637435721544886 -0.03577275245140174" rpy="0 0 0"/>
+    <mass value="0.3345781415997994"/>
+    <inertia ixx="0.000319" iyy="0.000148" izz="0.00038" ixy="5e-06" iyz="-3e-06" ixz="6e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0395 -0.02215 0.240275" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/pe_v4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0395 -0.02215 0.240275" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/pe_v4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pe_v4__1__1">
+  <inertial>
+    <origin xyz="0.003411280684911089 -0.02637435721544872 -0.03577275245140196" rpy="0 0 0"/>
+    <mass value="0.3345781415997994"/>
+    <inertia ixx="0.000319" iyy="0.000148" izz="0.00038" ixy="5e-06" iyz="-3e-06" ixz="6e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0405 -0.02215 0.240275" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/pe_v4__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0405 -0.02215 0.240275" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_urdf_description/meshes/pe_v4__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolucionar_2" type="continuous">
+  <origin xyz="0.0 -0.191623 -0.0014" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="pescoco_1"/>
+  <axis xyz="0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="Revolucionar_4" type="continuous">
+  <origin xyz="-0.021 0.190223 0.220523" rpy="0 0 0"/>
+  <parent link="pescoco_1"/>
+  <child link="cabeca_v2_1"/>
+  <axis xyz="-1.0 0.0 -0.0"/>
+</joint>
+
+<joint name="Revolucionar_7" type="continuous">
+  <origin xyz="0.07725 0.0 0.16273" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="ombro_v1__1__1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Revolucionar_8" type="continuous">
+  <origin xyz="-0.07725 0.0 0.16273" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="ombro_v1_1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+</joint>
+
+<joint name="Revolucionar_9" type="continuous">
+  <origin xyz="-0.02 -0.024 -0.0145" rpy="0 0 0"/>
+  <parent link="ombro_v1_1"/>
+  <child link="braco_v4_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Revolucionar_10" type="continuous">
+  <origin xyz="0.02 -0.024 -0.0145" rpy="0 0 0"/>
+  <parent link="ombro_v1__1__1"/>
+  <child link="braco_v4__1__1"/>
+  <axis xyz="-0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="Revolucionar_11" type="continuous">
+  <origin xyz="0.02075 0.02224 -0.0996" rpy="0 0 0"/>
+  <parent link="braco_v4__1__1"/>
+  <child link="MAO_v1_1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+</joint>
+
+<joint name="Revolucionar_12" type="continuous">
+  <origin xyz="-0.02075 0.02224 -0.0996" rpy="0 0 0"/>
+  <parent link="braco_v4_1"/>
+  <child link="MAO_v1__1__1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+</joint>
+
+<joint name="Revolucionar_13" type="continuous">
+  <origin xyz="0.04 0.0 -0.00425" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="quadril_v2_1"/>
+  <axis xyz="0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="Revolucionar_14" type="continuous">
+  <origin xyz="-0.04 0.0 -0.00425" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="quadril_v2__1__1"/>
+  <axis xyz="0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="Revolucionar_15" type="continuous">
+  <origin xyz="0.0 0.02215 -0.0355" rpy="0 0 0"/>
+  <parent link="quadril_v2__1__1"/>
+  <child link="coxa_v3_1"/>
+  <axis xyz="-0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="Revolucionar_16" type="continuous">
+  <origin xyz="0.0 0.02215 -0.0355" rpy="0 0 0"/>
+  <parent link="quadril_v2_1"/>
+  <child link="coxa_v3__3__1"/>
+  <axis xyz="-0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="Revolucionar_17" type="continuous">
+  <origin xyz="-0.0226 -0.01945 0.0" rpy="0 0 0"/>
+  <parent link="coxa_v3_1"/>
+  <child link="canela_v3__1__1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Revolucionar_18" type="continuous">
+  <origin xyz="-0.0226 -0.01945 0.0" rpy="0 0 0"/>
+  <parent link="coxa_v3__3__1"/>
+  <child link="canela_v3_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Revolucionar_19" type="continuous">
+  <origin xyz="0.00235 0.0 -0.1005" rpy="0 0 0"/>
+  <parent link="canela_v3__1__1"/>
+  <child link="canela_2_v3__1__1"/>
+  <axis xyz="-1.0 -0.0 -0.0"/>
+</joint>
+
+<joint name="Revolucionar_20" type="continuous">
+  <origin xyz="0.00235 0.0 -0.1005" rpy="0 0 0"/>
+  <parent link="canela_v3_1"/>
+  <child link="canela_2_v3_1"/>
+  <axis xyz="-1.0 -0.0 -0.0"/>
+</joint>
+
+<joint name="Revolucionar_21" type="continuous">
+  <origin xyz="0.04335 0.0 -0.100025" rpy="0 0 0"/>
+  <parent link="canela_2_v3__1__1"/>
+  <child link="coxa_v3__2__1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Revolucionar_22" type="continuous">
+  <origin xyz="0.04335 0.0 -0.100025" rpy="0 0 0"/>
+  <parent link="canela_2_v3_1"/>
+  <child link="coxa_v3__1__1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Revolucionar_23" type="continuous">
+  <origin xyz="-0.0226 0.01945 0.0" rpy="0 0 0"/>
+  <parent link="coxa_v3__2__1"/>
+  <child link="pe_v4_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Revolucionar_24" type="continuous">
+  <origin xyz="-0.0226 0.01945 0.0" rpy="0 0 0"/>
+  <parent link="coxa_v3__1__1"/>
+  <child link="pe_v4__1__1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+</robot>
