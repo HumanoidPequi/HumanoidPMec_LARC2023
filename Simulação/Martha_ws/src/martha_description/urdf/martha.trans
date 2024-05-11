@@ -1,0 +1,224 @@
+<?xml version="1.0" ?>
+<robot name="martha" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<transmission name="pescoco_rZ_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="pescoco_rZ">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="pescoco_rZ_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="cabeca_rX_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="cabeca_rX">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="cabeca_rX_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="ombro_esquerdo_rX_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="ombro_esquerdo_rX">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="ombro_esquerdo_rX_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="ombro_direito_rX_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="ombro_direito_rX">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="ombro_direito_rX_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="ombro_esquerdo_rY_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="ombro_esquerdo_rY">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="ombro_esquerdo_rY_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="ombro_direito_rY_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="ombro_direito_rY">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="ombro_direito_rY_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="mao_esquerda_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="mao_esquerda">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="mao_esquerda_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="mao_direita_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="mao_direita">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="mao_direita_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="quadril_esquerdo_rZ_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="quadril_esquerdo_rZ">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="quadril_esquerdo_rZ_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="quadril_esquerdo_rY_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="quadril_esquerdo_rY">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="quadril_esquerdo_rY_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="joelho_esquerdo_rX_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="joelho_esquerdo_rX">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="joelho_esquerdo_rX_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="quadril_esquerdo_rX_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="quadril_esquerdo_rX">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="quadril_esquerdo_rX_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="tornozelo_esquerdo_rX_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="tornozelo_esquerdo_rX">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="tornozelo_esquerdo_rX_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="tornozelo_esquerdo_rY_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="tornozelo_esquerdo_rY">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="tornozelo_esquerdo_rY_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="tornozelo_direito_rY_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="tornozelo_direito_rY">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="tornozelo_direito_rY_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="tornozelo_direito_rX_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="tornozelo_direito_rX">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="tornozelo_direito_rX_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="joelho_direito_rX_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="joelho_direito_rX">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="joelho_direito_rX_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="quadril_direito_rX_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="quadril_direito_rX">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="quadril_direito_rX_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="quadril_direito_rY_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="quadril_direito_rY">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="quadril_direito_rY_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="quadril_direito_rZ_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="quadril_direito_rZ">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="quadril_direito_rZ_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+</robot>

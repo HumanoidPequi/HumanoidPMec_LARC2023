@@ -1,0 +1,588 @@
+<?xml version="1.0" ?>
+<robot name="martha" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find martha_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find martha_description)/urdf/martha.trans" />
+<xacro:include filename="$(find martha_description)/urdf/martha.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.00023301230905643355 -0.008767749720889163 0.08499100214486582" rpy="0 0 0"/>
+    <mass value="10.26234734677015"/>
+    <inertia ixx="0.034666" iyy="0.039401" izz="0.026137" ixy="-2.4e-05" iyz="-0.001379" ixz="-0.000121"/>
+  </inertial>
+  <visual name="base_link_visual">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pescoco_1">
+  <inertial>
+    <origin xyz="-1.9023224968807838e-14 -8.281569874313277e-15 0.011104750965744897" rpy="0 0 0"/>
+    <mass value="0.06279010878107215"/>
+    <inertia ixx="1.2e-05" iyy="3e-05" izz="2.5e-05" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual name="pescoco_1_visual">
+    <origin xyz="0.0 0.0114 -0.191473" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/pescoco_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.0114 -0.191473" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/pescoco_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="cabeca_1">
+  <inertial>
+    <origin xyz="-0.020728139217007956 -0.025090240858054468 0.029326950387914386" rpy="0 0 0"/>
+    <mass value="0.756357213438088"/>
+    <inertia ixx="0.000654" iyy="0.000615" izz="0.00063" ixy="-1e-06" iyz="0.000274" ixz="2e-06"/>
+  </inertial>
+  <visual name="cabeca_1_visual">
+    <origin xyz="-0.021 0.0114 -0.220473" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/cabeca_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.021 0.0114 -0.220473" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/cabeca_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ombro_esquerdo_1">
+  <inertial>
+    <origin xyz="0.0066866699241785454 2.0816681711721685e-17 -0.0032002556517522762" rpy="0 0 0"/>
+    <mass value="0.06530340481504215"/>
+    <inertia ixx="2.9e-05" iyy="1.2e-05" izz="2.9e-05" ixy="-0.0" iyz="-0.0" ixz="3e-06"/>
+  </inertial>
+  <visual name="ombro_esquerdo_1_visual">
+    <origin xyz="-0.0771 0.01 -0.16273" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/ombro_esquerdo_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0771 0.01 -0.16273" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/ombro_esquerdo_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ombro_direito_1">
+  <inertial>
+    <origin xyz="-0.006686669924178101 2.7755575615628914e-17 -0.0032002556517522207" rpy="0 0 0"/>
+    <mass value="0.06530340481504215"/>
+    <inertia ixx="2.9e-05" iyy="1.2e-05" izz="2.9e-05" ixy="-0.0" iyz="0.0" ixz="-3e-06"/>
+  </inertial>
+  <visual name="ombro_direito_1_visual">
+    <origin xyz="0.0771 0.01 -0.16273" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/ombro_direito_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0771 0.01 -0.16273" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/ombro_direito_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="braco_esquerdo_1">
+  <inertial>
+    <origin xyz="2.1478896477855614e-05 0.020766946865101756 -0.04944488755371944" rpy="0 0 0"/>
+    <mass value="0.7696023650502539"/>
+    <inertia ixx="0.001245" iyy="0.001246" izz="0.000145" ixy="0.0" iyz="-3e-06" ixz="2e-06"/>
+  </inertial>
+  <visual name="braco_esquerdo_1_visual">
+    <origin xyz="-0.0971 0.031 -0.14823" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/braco_esquerdo_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0971 0.031 -0.14823" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/braco_esquerdo_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="braco_direito_1">
+  <inertial>
+    <origin xyz="2.1478896478493992e-05 0.02076694686510183 -0.04944488755371926" rpy="0 0 0"/>
+    <mass value="0.7696023650502539"/>
+    <inertia ixx="0.001245" iyy="0.001246" izz="0.000145" ixy="0.0" iyz="-3e-06" ixz="2e-06"/>
+  </inertial>
+  <visual name="braco_direito_1_visual">
+    <origin xyz="0.0971 0.031 -0.14823" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/braco_direito_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0971 0.031 -0.14823" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/braco_direito_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="mao_esquerda_1">
+  <inertial>
+    <origin xyz="0.0009999999999996262 1.8780116350924914e-14 -0.051558141367889714" rpy="0 0 0"/>
+    <mass value="0.039283886588329646"/>
+    <inertia ixx="4.5e-05" iyy="4.4e-05" izz="2e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual name="mao_esquerda_1_visual">
+    <origin xyz="-0.11785 0.01026 -0.04863" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/mao_esquerda_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.11785 0.01026 -0.04863" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/mao_esquerda_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="mao_direita_1">
+  <inertial>
+    <origin xyz="-0.0009999999999998066 -1.917389857997165e-14 -0.05155814136788935" rpy="0 0 0"/>
+    <mass value="0.039283886588329646"/>
+    <inertia ixx="4.5e-05" iyy="4.4e-05" izz="2e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual name="mao_direita_1_visual">
+    <origin xyz="0.11785 0.01026 -0.04863" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/mao_direita_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.11785 0.01026 -0.04863" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/mao_direita_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="quadril_esquerdo_1">
+  <inertial>
+    <origin xyz="1.4314938123760612e-14 0.001988067036543086 -0.01689495335095707" rpy="0 0 0"/>
+    <mass value="0.07025726179192515"/>
+    <inertia ixx="4.2e-05" iyy="1.7e-05" izz="3e-05" ixy="0.0" iyz="3e-06" ixz="0.0"/>
+  </inertial>
+  <visual name="quadril_esquerdo_1_visual">
+    <origin xyz="-0.04 0.01 0.0044" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/quadril_esquerdo_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.04 0.01 0.0044" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/quadril_esquerdo_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="coxa_esquerda_1">
+  <inertial>
+    <origin xyz="1.4332694612498309e-05 -0.0006782563173738359 -0.01214207998264017" rpy="0 0 0"/>
+    <mass value="0.7543759966469389"/>
+    <inertia ixx="0.000561" iyy="0.000213" izz="0.000492" ixy="0.0" iyz="0.0" ixz="1e-06"/>
+  </inertial>
+  <visual name="coxa_esquerda_1_visual">
+    <origin xyz="-0.04 -0.01215 0.0399" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/coxa_esquerda_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.04 -0.01215 0.0399" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/coxa_esquerda_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="canela_esquerda_2_1">
+  <inertial>
+    <origin xyz="0.02210055083330358 -0.004367378251287552 -0.05012443509922551" rpy="0 0 0"/>
+    <mass value="0.0900119088408919"/>
+    <inertia ixx="0.000124" iyy="0.000153" izz="4.2e-05" ixy="-1e-06" iyz="4e-06" ixz="-6e-06"/>
+  </inertial>
+  <visual name="canela_esquerda_2_1_visual">
+    <origin xyz="-0.01975 0.0073 0.1404" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/canela_esquerda_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.01975 0.0073 0.1404" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/canela_esquerda_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="canela_esquerda_1">
+  <inertial>
+    <origin xyz="0.0228493411868047 -2.7628101325824495e-09 -0.07781833032204813" rpy="0 0 0"/>
+    <mass value="0.44184444942201323"/>
+    <inertia ixx="0.000351" iyy="0.000397" izz="9.8e-05" ixy="0.0" iyz="-0.0" ixz="-4e-06"/>
+  </inertial>
+  <visual name="canela_esquerda_1_visual">
+    <origin xyz="-0.0174 0.0073 0.0399" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/canela_esquerda_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0174 0.0073 0.0399" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/canela_esquerda_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="calcanhar_esquerdo_1">
+  <inertial>
+    <origin xyz="-0.022614332694585237 0.018771743681580518 0.012142498757541087" rpy="0 0 0"/>
+    <mass value="0.7543759966469389"/>
+    <inertia ixx="0.000561" iyy="0.000213" izz="0.000492" ixy="-0.0" iyz="-0.0" ixz="1e-06"/>
+  </inertial>
+  <visual name="calcanhar_esquerdo_1_visual">
+    <origin xyz="-0.0631 0.0073 0.240425" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/calcanhar_esquerdo_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0631 0.0073 0.240425" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/calcanhar_esquerdo_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pe_esquerdo_1">
+  <inertial>
+    <origin xyz="0.0034112806849335223 -0.026374357215448188 -0.035772752451398604" rpy="0 0 0"/>
+    <mass value="0.3345781415997994"/>
+    <inertia ixx="0.000319" iyy="0.000148" izz="0.00038" ixy="5e-06" iyz="-3e-06" ixz="6e-06"/>
+  </inertial>
+  <visual name="pe_esquerdo_1_visual">
+    <origin xyz="-0.0405 -0.01215 0.240425" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/pe_esquerdo_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0405 -0.01215 0.240425" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/pe_esquerdo_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pe_direito_1">
+  <inertial>
+    <origin xyz="0.0034112806849334876 -0.026374357215448188 -0.035772752451398604" rpy="0 0 0"/>
+    <mass value="0.3345781415997994"/>
+    <inertia ixx="0.000319" iyy="0.000148" izz="0.00038" ixy="5e-06" iyz="-3e-06" ixz="6e-06"/>
+  </inertial>
+  <visual name="pe_direito_1_visual">
+    <origin xyz="0.0395 -0.01215 0.240425" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/pe_direito_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0395 -0.01215 0.240425" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/pe_direito_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="calcanhar_direito_1">
+  <inertial>
+    <origin xyz="-0.022614332694585272 0.018771743681580518 0.012142498757541087" rpy="0 0 0"/>
+    <mass value="0.7543759966469389"/>
+    <inertia ixx="0.000561" iyy="0.000213" izz="0.000492" ixy="-0.0" iyz="-0.0" ixz="1e-06"/>
+  </inertial>
+  <visual name="calcanhar_direito_1_visual">
+    <origin xyz="0.0169 0.0073 0.240425" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/calcanhar_direito_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0169 0.0073 0.240425" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/calcanhar_direito_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="canela_direita_2_1">
+  <inertial>
+    <origin xyz="0.022100550833303534 -0.004367378251287554 -0.05012443509922543" rpy="0 0 0"/>
+    <mass value="0.0900119088408919"/>
+    <inertia ixx="0.000124" iyy="0.000153" izz="4.2e-05" ixy="-1e-06" iyz="4e-06" ixz="-6e-06"/>
+  </inertial>
+  <visual name="canela_direita_2_1_visual">
+    <origin xyz="0.06025 0.0073 0.1404" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/canela_direita_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.06025 0.0073 0.1404" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/canela_direita_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="canela_direita_1">
+  <inertial>
+    <origin xyz="0.02284934118680465 -2.76281013778662e-09 -0.07781833032204813" rpy="0 0 0"/>
+    <mass value="0.44184444942201323"/>
+    <inertia ixx="0.000351" iyy="0.000397" izz="9.8e-05" ixy="0.0" iyz="-0.0" ixz="-4e-06"/>
+  </inertial>
+  <visual name="canela_direita_1_visual">
+    <origin xyz="0.0626 0.0073 0.0399" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/canela_direita_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0626 0.0073 0.0399" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/canela_direita_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="coxa_direita_1">
+  <inertial>
+    <origin xyz="1.4332694612477492e-05 -0.0006782563173738359 -0.01214207998264017" rpy="0 0 0"/>
+    <mass value="0.7543759966469389"/>
+    <inertia ixx="0.000561" iyy="0.000213" izz="0.000492" ixy="0.0" iyz="0.0" ixz="1e-06"/>
+  </inertial>
+  <visual name="coxa_direita_1_visual">
+    <origin xyz="0.04 -0.01215 0.0399" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/coxa_direita_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.04 -0.01215 0.0399" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/coxa_direita_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="quadril_direito_1">
+  <inertial>
+    <origin xyz="1.4287182548144983e-14 0.0019880670365430807 -0.016894953350957066" rpy="0 0 0"/>
+    <mass value="0.07025726179192515"/>
+    <inertia ixx="4.2e-05" iyy="1.7e-05" izz="3e-05" ixy="0.0" iyz="3e-06" ixz="0.0"/>
+  </inertial>
+  <visual name="quadril_direito_1_visual">
+    <origin xyz="0.04 0.01 0.0044" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/quadril_direito_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.04 0.01 0.0044" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://martha_description/meshes/quadril_direito_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="pescoco_rZ" type="continuous">
+  <origin xyz="0.0 -0.0114 0.191473" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="pescoco_1"/>
+  <axis xyz="-0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="cabeca_rX" type="continuous">
+  <origin xyz="0.021 0.0 0.029" rpy="0 0 0"/>
+  <parent link="pescoco_1"/>
+  <child link="cabeca_1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="ombro_esquerdo_rX" type="continuous">
+  <origin xyz="0.0771 -0.01 0.16273" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="ombro_esquerdo_1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+</joint>
+
+<joint name="ombro_direito_rX" type="continuous">
+  <origin xyz="-0.0771 -0.01 0.16273" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="ombro_direito_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="ombro_esquerdo_rY" type="continuous">
+  <origin xyz="0.02 -0.021 -0.0145" rpy="0 0 0"/>
+  <parent link="ombro_esquerdo_1"/>
+  <child link="braco_esquerdo_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="ombro_direito_rY" type="continuous">
+  <origin xyz="-0.02 -0.021 -0.0145" rpy="0 0 0"/>
+  <parent link="ombro_direito_1"/>
+  <child link="braco_direito_1"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="mao_esquerda" type="continuous">
+  <origin xyz="0.02075 0.02074 -0.0996" rpy="0 0 0"/>
+  <parent link="braco_esquerdo_1"/>
+  <child link="mao_esquerda_1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+</joint>
+
+<joint name="mao_direita" type="continuous">
+  <origin xyz="-0.02075 0.02074 -0.0996" rpy="0 0 0"/>
+  <parent link="braco_direito_1"/>
+  <child link="mao_direita_1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+</joint>
+
+<joint name="quadril_esquerdo_rZ" type="continuous">
+  <origin xyz="0.04 -0.01 -0.0044" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="quadril_esquerdo_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="quadril_esquerdo_rY" type="continuous">
+  <origin xyz="0.0 0.02215 -0.0355" rpy="0 0 0"/>
+  <parent link="quadril_esquerdo_1"/>
+  <child link="coxa_esquerda_1"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="joelho_esquerdo_rX" type="continuous">
+  <origin xyz="0.00235 0.0 -0.1005" rpy="0 0 0"/>
+  <parent link="canela_esquerda_1"/>
+  <child link="canela_esquerda_2_1"/>
+  <axis xyz="-1.0 -0.0 -0.0"/>
+</joint>
+
+<joint name="quadril_esquerdo_rX" type="continuous">
+  <origin xyz="-0.0226 -0.01945 0.0" rpy="0 0 0"/>
+  <parent link="coxa_esquerda_1"/>
+  <child link="canela_esquerda_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="tornozelo_esquerdo_rX" type="continuous">
+  <origin xyz="0.04335 0.0 -0.100025" rpy="0 0 0"/>
+  <parent link="canela_esquerda_2_1"/>
+  <child link="calcanhar_esquerdo_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="tornozelo_esquerdo_rY" type="continuous">
+  <origin xyz="-0.0226 0.01945 0.0" rpy="0 0 0"/>
+  <parent link="calcanhar_esquerdo_1"/>
+  <child link="pe_esquerdo_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="tornozelo_direito_rY" type="continuous">
+  <origin xyz="-0.0226 0.01945 0.0" rpy="0 0 0"/>
+  <parent link="calcanhar_direito_1"/>
+  <child link="pe_direito_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="tornozelo_direito_rX" type="continuous">
+  <origin xyz="0.04335 0.0 -0.100025" rpy="0 0 0"/>
+  <parent link="canela_direita_2_1"/>
+  <child link="calcanhar_direito_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="joelho_direito_rX" type="continuous">
+  <origin xyz="0.00235 0.0 -0.1005" rpy="0 0 0"/>
+  <parent link="canela_direita_1"/>
+  <child link="canela_direita_2_1"/>
+  <axis xyz="-1.0 -0.0 -0.0"/>
+</joint>
+
+<joint name="quadril_direito_rX" type="continuous">
+  <origin xyz="-0.0226 -0.01945 0.0" rpy="0 0 0"/>
+  <parent link="coxa_direita_1"/>
+  <child link="canela_direita_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="quadril_direito_rY" type="continuous">
+  <origin xyz="0.0 0.02215 -0.0355" rpy="0 0 0"/>
+  <parent link="quadril_direito_1"/>
+  <child link="coxa_direita_1"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="quadril_direito_rZ" type="continuous">
+  <origin xyz="-0.04 -0.01 -0.0044" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="quadril_direito_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+</robot>

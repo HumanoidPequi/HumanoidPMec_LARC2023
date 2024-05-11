@@ -1,0 +1,5 @@
+<launch>
+  <arg name="rvizconfig" default="$(find martha_description)/rviz/urdf.rviz"/>
+  <remap from="/joint_states" to="/martha/joint_states"/>
+  <node name="rviz" pkg="rviz" args="-d $(arg rvizconfig)" type="rviz" required="true"/>
+</launch>

@@ -1,6 +1,8 @@
 <launch>
+  <arg name="rviz" default="true"/>
+
   <!-- Carregar a descricao do robo a partir do URDF -->
-  <param name="robot_description" command="$(find xacro)/xacro $(find martha_urdf_description)/urdf/martha_urdf.xacro"/>
+  <param name="robot_description" command="$(find xacro)/xacro $(find martha_description)/urdf/martha.xacro"/>
   
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="paused" value="true"/>
@@ -10,13 +12,17 @@
     <arg name="debug" value="false"/>
   </include>
 
+  <!--<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>-->
+  
   <!-- Spawn do modelo do robo no Gazebo -->
-  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model martha_urdf -x 0 -y 0 -z 0.284275 -R 0 -P 0 -Y 0"/>
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model martha -x 0 -y 0 -z 0.284275 -R 0 -P 0 -Y 0"/>
 
   <!-- Incluir os controladores de juntas -->
   <include file="$(find martha_gazebo)/launch/controller.launch"/>
 
-  <!-- Iniciar o RViz com configuracao predefinida para visualizacao do robo -->
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find martha_gazebo)/launch/urdf.rviz"/>
-
+  <!-- Iniciar o RViz com configuracao predefinida para visualizacao do robo--> 
+  <group if="$(arg rviz)">
+    <include file="$(find martha_gazebo)/launch/rviz.launch"/>
+  </group>
+ 
 </launch>
