@@ -8,80 +8,98 @@ martha:
   pescoco_rZ_position_controller:
     type: effort_controllers/JointPositionController
     joint: pescoco_rZ
-    pid: {p: 100.0, i: 0.0, d: 0.0}
+    pid: {p: 10.0, i: 0.001, d: 0.1}
+
   cabeca_rX_position_controller:
     type: effort_controllers/JointPositionController
     joint: cabeca_rX
-    pid: {p: 100.0, i: 0.0, d: 0.0}
+    pid: {p: 10.0, i: 0.001, d: 0.1}
+
   ombro_esquerdo_rX_position_controller:
     type: effort_controllers/JointPositionController
     joint: ombro_esquerdo_rX
-    pid: {p: 100.0, i: 0.0, d: 0.0}
-  ombro_direito_rX_position_controller:
-    type: effort_controllers/JointPositionController
-    joint: ombro_direito_rX
-    pid: {p: 100.0, i: 0.0, d: 0.0}
+    pid: {p: 10.0, i: 0.001, d: 0.1}
   ombro_esquerdo_rY_position_controller:
     type: effort_controllers/JointPositionController
     joint: ombro_esquerdo_rY
-    pid: {p: 100.0, i: 0.0, d: 0.0}
+    pid: {p: 10.0, i: 0.001, d: 0.1}
+
+  ombro_direito_rX_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: ombro_direito_rX
+    pid: {p: 10.0, i: 0.001, d: 0.1}
   ombro_direito_rY_position_controller:
     type: effort_controllers/JointPositionController
     joint: ombro_direito_rY
-    pid: {p: 100.0, i: 0.0, d: 0.0}
+    pid: {p: 10.0, i: 0.001, d: 0.1}
+
   mao_esquerda_position_controller:
     type: effort_controllers/JointPositionController
     joint: mao_esquerda
-    pid: {p: 100.0, i: 0.0, d: 0.0}
+    pid: {p: 1.0, i: 0.0002, d: 0.002}
   mao_direita_position_controller:
     type: effort_controllers/JointPositionController
     joint: mao_direita
-    pid: {p: 100.0, i: 0.0, d: 0.0}
-  quadril_esquerdo_rZ_position_controller:
-    type: effort_controllers/JointPositionController
-    joint: quadril_esquerdo_rZ
-    pid: {p: 100.0, i: 0.0, d: 0.0}
-  quadril_esquerdo_rY_position_controller:
-    type: effort_controllers/JointPositionController
-    joint: quadril_esquerdo_rY
-    pid: {p: 100.0, i: 0.0, d: 0.0}
-  joelho_esquerdo_rX_position_controller:
-    type: effort_controllers/JointPositionController
-    joint: joelho_esquerdo_rX
-    pid: {p: 100.0, i: 0.0, d: 0.0}
+    pid: {p: 1.0, i: 0.0002, d: 0.002}
+
+
+
   quadril_esquerdo_rX_position_controller:
     type: effort_controllers/JointPositionController
     joint: quadril_esquerdo_rX
-    pid: {p: 100.0, i: 0.0, d: 0.0}
-  tornozelo_esquerdo_rX_position_controller:
+    pid: {p: 40.0, i: 0.0002, d: 0.05}
+  quadril_esquerdo_rY_position_controller:
     type: effort_controllers/JointPositionController
-    joint: tornozelo_esquerdo_rX
-    pid: {p: 100.0, i: 0.0, d: 0.0}
-  tornozelo_esquerdo_rY_position_controller:
+    joint: quadril_esquerdo_rY
+    pid: {p: 40.0, i: 0.0002, d: 0.05}
+  quadril_esquerdo_rZ_position_controller:
     type: effort_controllers/JointPositionController
-    joint: tornozelo_esquerdo_rY
-    pid: {p: 100.0, i: 0.0, d: 0.0}
-  tornozelo_direito_rY_position_controller:
-    type: effort_controllers/JointPositionController
-    joint: tornozelo_direito_rY
-    pid: {p: 100.0, i: 0.0, d: 0.0}
-  tornozelo_direito_rX_position_controller:
-    type: effort_controllers/JointPositionController
-    joint: tornozelo_direito_rX
-    pid: {p: 100.0, i: 0.0, d: 0.0}
-  joelho_direito_rX_position_controller:
-    type: effort_controllers/JointPositionController
-    joint: joelho_direito_rX
-    pid: {p: 100.0, i: 0.0, d: 0.0}
+    joint: quadril_esquerdo_rZ
+    pid: {p: 40.0, i: 0.0002, d: 0.05}
+
+
+
   quadril_direito_rX_position_controller:
     type: effort_controllers/JointPositionController
     joint: quadril_direito_rX
-    pid: {p: 100.0, i: 0.0, d: 0.0}
+    pid: {p: 40.0, i: 0.0002, d: 0.05}
   quadril_direito_rY_position_controller:
     type: effort_controllers/JointPositionController
     joint: quadril_direito_rY
-    pid: {p: 100.0, i: 0.0, d: 0.0}
+    pid: {p: 40.0, i: 0.0002, d: 0.05}
   quadril_direito_rZ_position_controller:
     type: effort_controllers/JointPositionController
     joint: quadril_direito_rZ
-    pid: {p: 100.0, i: 0.0, d: 0.0}
+    pid: {p: 40.0, i: 0.0002, d: 0.05}
+  
+
+  joelho_esquerdo_rX_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: joelho_esquerdo_rX
+    pid: {p: 40.0, i: 0.0002, d: 0.005}
+  
+
+  joelho_direito_rX_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: joelho_direito_rX
+    pid: {p: 40.0, i: 0.0002, d: 0.005}
+
+
+  tornozelo_esquerdo_rX_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: tornozelo_esquerdo_rX
+    pid: {p: 40.0, i: 0.0002, d: 0.005}
+  tornozelo_esquerdo_rY_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: tornozelo_esquerdo_rY
+    pid: {p: 40.0, i: 0.0002, d: 0.005}
+  tornozelo_direito_rY_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: tornozelo_direito_rY
+    pid: {p: 40.0, i: 0.0002, d: 0.005}
+  tornozelo_direito_rX_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: tornozelo_direito_rX
+    pid: {p: 40.0, i: 0.0002, d: 0.005}
+  
+  

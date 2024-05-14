@@ -4,7 +4,8 @@
   <!-- Carregar a descricao do robo a partir do URDF -->
   <param name="robot_description" command="$(find xacro)/xacro $(find martha_description)/urdf/martha.xacro"/>
   
-  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+  <include file="$(find martha_gazebo)/launch/gazebo_init.launch">
+    <arg name="world_name" value="world.world"/>
     <arg name="paused" value="true"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>

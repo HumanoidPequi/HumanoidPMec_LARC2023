@@ -4,13 +4,16 @@
 <xacro:include filename="$(find martha_description)/urdf/materials.xacro" />
 <xacro:include filename="$(find martha_description)/urdf/martha.trans" />
 <xacro:include filename="$(find martha_description)/urdf/martha.gazebo" />
+<xacro:include filename="$(find martha_description)/urdf/camera.xacro" />
 <link name="base_link">
   <inertial>
-    <origin xyz="-0.00023301230905643355 -0.008767749720889163 0.08499100214486582" rpy="0 0 0"/>
-    <mass value="10.26234734677015"/>
-    <inertia ixx="0.034666" iyy="0.039401" izz="0.026137" ixy="-2.4e-05" iyz="-0.001379" ixz="-0.000121"/>
+    <origin xyz="-0.00023301230905643097 -0.008767749720889163 0.08499100214486582" rpy="0 0 0"/>
+    <mass value="3.42324299"/>
+    <inertia 	ixx="0.03329076"	ixy="0.00032536"	ixz="0.00003330"
+	            iyx="0.00032536"	iyy="0.01155302"	iyz="0.00085085"
+	            izx="0.00003330"	izy="0.00085085"	izz="0.03581659"/>
   </inertial>
-  <visual name="base_link_visual">
+  <visual>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://martha_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
@@ -28,10 +31,12 @@
 <link name="pescoco_1">
   <inertial>
     <origin xyz="-1.9023224968807838e-14 -8.281569874313277e-15 0.011104750965744897" rpy="0 0 0"/>
-    <mass value="0.06279010878107215"/>
-    <inertia ixx="1.2e-05" iyy="3e-05" izz="2.5e-05" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+    <mass value="0.00752807"/>
+    <inertia ixx="0.00000284"	  ixy="0.0"	        ixz="-0.00000089"
+	           iyx="0.0"	        iyy="0.00000317"	iyz="0.0"
+	           izx="-0.00000089"	izy="0.0"	        izz="0.00000445"/>
   </inertial>
-  <visual name="pescoco_1_visual">
+  <visual>
     <origin xyz="0.0 0.0114 -0.191473" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://martha_description/meshes/pescoco_1.stl" scale="0.001 0.001 0.001"/>
@@ -49,10 +54,12 @@
 <link name="cabeca_1">
   <inertial>
     <origin xyz="-0.020728139217007956 -0.025090240858054468 0.029326950387914386" rpy="0 0 0"/>
-    <mass value="0.756357213438088"/>
-    <inertia ixx="0.000654" iyy="0.000615" izz="0.00063" ixy="-1e-06" iyz="0.000274" ixz="2e-06"/>
+    <mass value="0.16989203"/>
+    <inertia ixx="0.00036883"	  ixy="0.00001840"	ixz="-0.00000236"
+	           iyx="0.00001840"	  iyy="0.00015387"	iyz="-0.00010413"
+	           izx="-0.00000236"	izy="-0.00010413"	izz="0.00024492"/>
   </inertial>
-  <visual name="cabeca_1_visual">
+  <visual>
     <origin xyz="-0.021 0.0114 -0.220473" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://martha_description/meshes/cabeca_1.stl" scale="0.001 0.001 0.001"/>
@@ -70,10 +77,12 @@
 <link name="ombro_esquerdo_1">
   <inertial>
     <origin xyz="0.0066866699241785454 2.0816681711721685e-17 -0.0032002556517522762" rpy="0 0 0"/>
-    <mass value="0.06530340481504215"/>
-    <inertia ixx="2.9e-05" iyy="1.2e-05" izz="2.9e-05" ixy="-0.0" iyz="-0.0" ixz="3e-06"/>
+    <mass value="0.00784823"/>
+    <inertia ixx="0.00000247"	  ixy="0.00000054"	ixz="-0.00000015"
+	           iyx="0.00000054"	  iyy="0.00000437"	iyz="0.00000056"
+	           izx="-0.00000015"	izy="0.00000056"	izz="0.00000374"/>
   </inertial>
-  <visual name="ombro_esquerdo_1_visual">
+  <visual>
     <origin xyz="-0.0771 0.01 -0.16273" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://martha_description/meshes/ombro_esquerdo_1.stl" scale="0.001 0.001 0.001"/>
@@ -91,10 +100,12 @@
 <link name="ombro_direito_1">
   <inertial>
     <origin xyz="-0.006686669924178101 2.7755575615628914e-17 -0.0032002556517522207" rpy="0 0 0"/>
-    <mass value="0.06530340481504215"/>
-    <inertia ixx="2.9e-05" iyy="1.2e-05" izz="2.9e-05" ixy="-0.0" iyz="0.0" ixz="-3e-06"/>
+    <mass value="0.00784823"/>
+    <inertia ixx="0.00000247"	  ixy="0.00000054"	ixz="-0.00000015"
+	           iyx="0.00000054"	  iyy="0.00000437"	iyz="0.00000056"
+	           izx="-0.00000015"	izy="0.00000056"	izz="0.00000374"/>
   </inertial>
-  <visual name="ombro_direito_1_visual">
+  <visual>
     <origin xyz="0.0771 0.01 -0.16273" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://martha_description/meshes/ombro_direito_1.stl" scale="0.001 0.001 0.001"/>
@@ -112,10 +123,12 @@
 <link name="braco_esquerdo_1">
   <inertial>
     <origin xyz="2.1478896477855614e-05 0.020766946865101756 -0.04944488755371944" rpy="0 0 0"/>
-    <mass value="0.7696023650502539"/>
-    <inertia ixx="0.001245" iyy="0.001246" izz="0.000145" ixy="0.0" iyz="-3e-06" ixz="2e-06"/>
+    <mass value="0.24511984"/>
+    <inertia ixx="0.00115082"	  ixy="-0.00004952"	ixz="-0.00001482"
+	           iyx="-0.00004952"	iyy="0.00018286"	iyz="0.00028731"
+	           izx="-0.00001482"	izy="0.00028731"	izz="0.00101703"/>
   </inertial>
-  <visual name="braco_esquerdo_1_visual">
+  <visual>
     <origin xyz="-0.0971 0.031 -0.14823" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://martha_description/meshes/braco_esquerdo_1.stl" scale="0.001 0.001 0.001"/>
@@ -133,10 +146,12 @@
 <link name="braco_direito_1">
   <inertial>
     <origin xyz="2.1478896478493992e-05 0.02076694686510183 -0.04944488755371926" rpy="0 0 0"/>
-    <mass value="0.7696023650502539"/>
-    <inertia ixx="0.001245" iyy="0.001246" izz="0.000145" ixy="0.0" iyz="-3e-06" ixz="2e-06"/>
+    <mass value="0.24511984"/>
+    <inertia ixx="0.00115082"	  ixy="-0.00004952"	ixz="-0.00001482"
+	           iyx="-0.00004952"	iyy="0.00018286"	iyz="0.00028731"
+	           izx="-0.00001482"	izy="0.00028731"	izz="0.00101703"/>
   </inertial>
-  <visual name="braco_direito_1_visual">
+  <visual>
     <origin xyz="0.0971 0.031 -0.14823" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://martha_description/meshes/braco_direito_1.stl" scale="0.001 0.001 0.001"/>
@@ -154,10 +169,12 @@
 <link name="mao_esquerda_1">
   <inertial>
     <origin xyz="0.0009999999999996262 1.8780116350924914e-14 -0.051558141367889714" rpy="0 0 0"/>
-    <mass value="0.039283886588329646"/>
-    <inertia ixx="4.5e-05" iyy="4.4e-05" izz="2e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+    <mass value="0.00500432"/>
+    <inertia ixx="0.00001624"	  ixy="-0.00000647"	ixz="-0.00000010"
+	           iyx="-0.00000647"	iyy="0.00000281"	iyz="0.00000024"
+	           izx="-0.00000010"	izy="0.00000024"	izz="0.00001904"/>
   </inertial>
-  <visual name="mao_esquerda_1_visual">
+  <visual>
     <origin xyz="-0.11785 0.01026 -0.04863" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://martha_description/meshes/mao_esquerda_1.stl" scale="0.001 0.001 0.001"/>
@@ -175,10 +192,12 @@
 <link name="mao_direita_1">
   <inertial>
     <origin xyz="-0.0009999999999998066 -1.917389857997165e-14 -0.05155814136788935" rpy="0 0 0"/>
-    <mass value="0.039283886588329646"/>
-    <inertia ixx="4.5e-05" iyy="4.4e-05" izz="2e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+    <mass value="0.00500432"/>
+    <inertia ixx="0.00001624"	  ixy="-0.00000647"	ixz="-0.00000010"
+	           iyx="-0.00000647"	iyy="0.00000281"	iyz="0.00000024"
+	           izx="-0.00000010"	izy="0.00000024"	izz="0.00001904"/>
   </inertial>
-  <visual name="mao_direita_1_visual">
+  <visual>
     <origin xyz="0.11785 0.01026 -0.04863" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://martha_description/meshes/mao_direita_1.stl" scale="0.001 0.001 0.001"/>
@@ -196,10 +215,12 @@
 <link name="quadril_esquerdo_1">
   <inertial>
     <origin xyz="1.4314938123760612e-14 0.001988067036543086 -0.01689495335095707" rpy="0 0 0"/>
-    <mass value="0.07025726179192515"/>
-    <inertia ixx="4.2e-05" iyy="1.7e-05" izz="3e-05" ixy="0.0" iyz="3e-06" ixz="0.0"/>
+    <mass value="0.00770492"/>
+    <inertia ixx="0.00000604"	ixy="0.0"	        ixz="0.0"
+	           iyx="0.0"	      iyy="0.00000333"	iyz="0.00000005"
+	           izx="0.0"	      izy="0.00000005"	izz="0.00000335"/>
   </inertial>
-  <visual name="quadril_esquerdo_1_visual">
+  <visual>
     <origin xyz="-0.04 0.01 0.0044" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://martha_description/meshes/quadril_esquerdo_1.stl" scale="0.001 0.001 0.001"/>
@@ -217,10 +238,12 @@
 <link name="coxa_esquerda_1">
   <inertial>
     <origin xyz="1.4332694612498309e-05 -0.0006782563173738359 -0.01214207998264017" rpy="0 0 0"/>
-    <mass value="0.7543759966469389"/>
-    <inertia ixx="0.000561" iyy="0.000213" izz="0.000492" ixy="0.0" iyz="0.0" ixz="1e-06"/>
+    <mass value="0.09798763"/>
+    <inertia ixx="0.00011704"	  ixy="-0.00002470"	ixz="-0.00004285"
+	           iyx="-0.00002470"	iyy="0.00015120"	iyz="0.00001970"
+	           izx="-0.00004285"	izy="0.00001970"	izz="0.00009318"/>
   </inertial>
-  <visual name="coxa_esquerda_1_visual">
+  <visual>
     <origin xyz="-0.04 -0.01215 0.0399" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://martha_description/meshes/coxa_esquerda_1.stl" scale="0.001 0.001 0.001"/>
@@ -238,10 +261,12 @@
 <link name="canela_esquerda_2_1">
   <inertial>
     <origin xyz="0.02210055083330358 -0.004367378251287552 -0.05012443509922551" rpy="0 0 0"/>
-    <mass value="0.0900119088408919"/>
-    <inertia ixx="0.000124" iyy="0.000153" izz="4.2e-05" ixy="-1e-06" iyz="4e-06" ixz="-6e-06"/>
+    <mass value="0.00914336"/>
+    <inertia ixx="0.00004108"	  ixy="-0.00001063"	ixz="-0.00000087"
+	           iyx="-0.00001063"	iyy="0.00000815"	iyz="0.00000285"
+	           izx="-0.00000087"	izy="0.00000285"	izz="0.00004741"/>
   </inertial>
-  <visual name="canela_esquerda_2_1_visual">
+  <visual>
     <origin xyz="-0.01975 0.0073 0.1404" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://martha_description/meshes/canela_esquerda_2_1.stl" scale="0.001 0.001 0.001"/>
@@ -259,10 +284,12 @@
 <link name="canela_esquerda_1">
   <inertial>
     <origin xyz="0.0228493411868047 -2.7628101325824495e-09 -0.07781833032204813" rpy="0 0 0"/>
-    <mass value="0.44184444942201323"/>
-    <inertia ixx="0.000351" iyy="0.000397" izz="9.8e-05" ixy="0.0" iyz="-0.0" ixz="-4e-06"/>
+    <mass value="0.05533250"/>
+    <inertia ixx="0.00035394"	ixy="0.00009305"	ixz="0.00000038"
+	           iyx="0.00009305"	iyy="0.00003922"	iyz="0.00000131"
+	           izx="0.00000038"	izy="0.00000131"	izz="0.00038649"/>
   </inertial>
-  <visual name="canela_esquerda_1_visual">
+  <visual>
     <origin xyz="-0.0174 0.0073 0.0399" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://martha_description/meshes/canela_esquerda_1.stl" scale="0.001 0.001 0.001"/>
@@ -280,10 +307,12 @@
 <link name="calcanhar_esquerdo_1">
   <inertial>
     <origin xyz="-0.022614332694585237 0.018771743681580518 0.012142498757541087" rpy="0 0 0"/>
-    <mass value="0.7543759966469389"/>
-    <inertia ixx="0.000561" iyy="0.000213" izz="0.000492" ixy="-0.0" iyz="-0.0" ixz="1e-06"/>
+    <mass value="0.09643869"/>
+    <inertia ixx="0.00011593"	  ixy="-0.00002082"	ixz="-0.00004182"
+	           iyx="-0.00002082"	iyy="0.00014789"	iyz="0.00001782"
+	           izx="-0.00004182"	izy="0.00001782"	izz="0.00008568"/>
   </inertial>
-  <visual name="calcanhar_esquerdo_1_visual">
+  <visual>
     <origin xyz="-0.0631 0.0073 0.240425" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://martha_description/meshes/calcanhar_esquerdo_1.stl" scale="0.001 0.001 0.001"/>
@@ -301,10 +330,12 @@
 <link name="pe_esquerdo_1">
   <inertial>
     <origin xyz="0.0034112806849335223 -0.026374357215448188 -0.035772752451398604" rpy="0 0 0"/>
-    <mass value="0.3345781415997994"/>
-    <inertia ixx="0.000319" iyy="0.000148" izz="0.00038" ixy="5e-06" iyz="-3e-06" ixz="6e-06"/>
+    <mass value="0.04184724"/>
+    <inertia ixx="0.00013469"	ixy="0.00000867"	ixz="0.00000565"
+	           iyx="0.00000867"	iyy="0.00007646"	iyz="0.00004294"
+	           izx="0.00000565"	izy="0.00004294"	izz="0.00008670"/>
   </inertial>
-  <visual name="pe_esquerdo_1_visual">
+  <visual>
     <origin xyz="-0.0405 -0.01215 0.240425" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://martha_description/meshes/pe_esquerdo_1.stl" scale="0.001 0.001 0.001"/>
@@ -325,7 +356,7 @@
     <mass value="0.3345781415997994"/>
     <inertia ixx="0.000319" iyy="0.000148" izz="0.00038" ixy="5e-06" iyz="-3e-06" ixz="6e-06"/>
   </inertial>
-  <visual name="pe_direito_1_visual">
+  <visual>
     <origin xyz="0.0395 -0.01215 0.240425" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://martha_description/meshes/pe_direito_1.stl" scale="0.001 0.001 0.001"/>
@@ -343,10 +374,12 @@
 <link name="calcanhar_direito_1">
   <inertial>
     <origin xyz="-0.022614332694585272 0.018771743681580518 0.012142498757541087" rpy="0 0 0"/>
-    <mass value="0.7543759966469389"/>
-    <inertia ixx="0.000561" iyy="0.000213" izz="0.000492" ixy="-0.0" iyz="-0.0" ixz="1e-06"/>
+    <mass value="0.09643869"/>
+    <inertia ixx="0.00011593"	  ixy="-0.00002082"	ixz="-0.00004182"
+	           iyx="-0.00002082"	iyy="0.00014789"	iyz="0.00001782"
+	           izx="-0.00004182"	izy="0.00001782"	izz="0.00008568"/>
   </inertial>
-  <visual name="calcanhar_direito_1_visual">
+  <visual>
     <origin xyz="0.0169 0.0073 0.240425" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://martha_description/meshes/calcanhar_direito_1.stl" scale="0.001 0.001 0.001"/>
@@ -364,10 +397,12 @@
 <link name="canela_direita_2_1">
   <inertial>
     <origin xyz="0.022100550833303534 -0.004367378251287554 -0.05012443509922543" rpy="0 0 0"/>
-    <mass value="0.0900119088408919"/>
-    <inertia ixx="0.000124" iyy="0.000153" izz="4.2e-05" ixy="-1e-06" iyz="4e-06" ixz="-6e-06"/>
+    <mass value="0.00914336"/>
+    <inertia ixx="0.00004108"	  ixy="-0.00001063"	ixz="-0.00000087"
+	           iyx="-0.00001063"	iyy="0.00000815"	iyz="0.00000285"
+	           izx="-0.00000087"	izy="0.00000285"	izz="0.00004741"/>
   </inertial>
-  <visual name="canela_direita_2_1_visual">
+  <visual>
     <origin xyz="0.06025 0.0073 0.1404" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://martha_description/meshes/canela_direita_2_1.stl" scale="0.001 0.001 0.001"/>
@@ -385,10 +420,12 @@
 <link name="canela_direita_1">
   <inertial>
     <origin xyz="0.02284934118680465 -2.76281013778662e-09 -0.07781833032204813" rpy="0 0 0"/>
-    <mass value="0.44184444942201323"/>
-    <inertia ixx="0.000351" iyy="0.000397" izz="9.8e-05" ixy="0.0" iyz="-0.0" ixz="-4e-06"/>
+    <mass value="0.05533250"/>
+    <inertia ixx="0.00035394"	ixy="0.00009305"	ixz="0.00000038"
+	           iyx="0.00009305"	iyy="0.00003922"	iyz="0.00000131"
+	           izx="0.00000038"	izy="0.00000131"	izz="0.00038649"/>
   </inertial>
-  <visual name="canela_direita_1_visual">
+  <visual>
     <origin xyz="0.0626 0.0073 0.0399" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://martha_description/meshes/canela_direita_1.stl" scale="0.001 0.001 0.001"/>
@@ -406,10 +443,12 @@
 <link name="coxa_direita_1">
   <inertial>
     <origin xyz="1.4332694612477492e-05 -0.0006782563173738359 -0.01214207998264017" rpy="0 0 0"/>
-    <mass value="0.7543759966469389"/>
-    <inertia ixx="0.000561" iyy="0.000213" izz="0.000492" ixy="0.0" iyz="0.0" ixz="1e-06"/>
+    <mass value="0.09798763"/>
+    <inertia ixx="0.00011704"	  ixy="-0.00002470"	ixz="-0.00004285"
+	           iyx="-0.00002470"	iyy="0.00015120"	iyz="0.00001970"
+	           izx="-0.00004285"	izy="0.00001970"	izz="0.00009318"/>
   </inertial>
-  <visual name="coxa_direita_1_visual">
+  <visual>
     <origin xyz="0.04 -0.01215 0.0399" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://martha_description/meshes/coxa_direita_1.stl" scale="0.001 0.001 0.001"/>
@@ -424,13 +463,16 @@
   </collision>
 </link>
 
+
 <link name="quadril_direito_1">
   <inertial>
     <origin xyz="1.4287182548144983e-14 0.0019880670365430807 -0.016894953350957066" rpy="0 0 0"/>
-    <mass value="0.07025726179192515"/>
-    <inertia ixx="4.2e-05" iyy="1.7e-05" izz="3e-05" ixy="0.0" iyz="3e-06" ixz="0.0"/>
+    <mass value="0.00770492"/>
+    <inertia ixx="0.00000604"	ixy="0.0"	        ixz="0.0"
+	           iyx="0.0"	      iyy="0.00000333"	iyz="0.00000005"
+	           izx="0.0"	      izy="0.00000005"	izz="0.00000335"/>
   </inertial>
-  <visual name="quadril_direito_1_visual">
+  <visual>
     <origin xyz="0.04 0.01 0.0044" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://martha_description/meshes/quadril_direito_1.stl" scale="0.001 0.001 0.001"/>
