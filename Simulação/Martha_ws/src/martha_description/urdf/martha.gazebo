@@ -3,6 +3,25 @@
 
 <xacro:property name="body_color" value="Gazebo/Silver" />
 
+<xacro:property name="Kp_pe" value="1e15" />
+<xacro:property name="Kd_pe" value="1e13" />
+
+<xacro:property name="Kp_coxa_1" value="1e15" />
+<xacro:property name="Kd_coxa_1" value="1e13" />
+
+<xacro:property name="Kp_canela_1" value="1e15" />
+<xacro:property name="Kd_canela_1" value="1e13" />
+
+<xacro:property name="Kp_canela_2" value="1e15" />
+<xacro:property name="Kd_canela_2" value="1e13" />
+
+<xacro:property name="Kp_calcanhar" value="1e15" />
+<xacro:property name="Kd_calcanhar" value="1e13" />
+
+<xacro:property name="Kp_quadril" value="1e15" />
+<xacro:property name="Kd_quadril" value="1e13" />
+
+
 <gazebo>
   <plugin name="control" filename="libgazebo_ros_control.so">
     <robotNamespace>/martha</robotNamespace>
@@ -10,150 +29,183 @@
 </gazebo>
 <gazebo reference="base_link">
   <material>${body_color}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
+  <mu1>500</mu1>
+  <mu2>400</mu2>
+  <selfCollide>false</selfCollide>
   <gravity>true</gravity>
 </gazebo>
 
 <gazebo reference="pescoco_1">
   <material>${body_color}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
+  <mu1>500</mu1>
+  <mu2>400</mu2>
+  <selfCollide>false</selfCollide>
 </gazebo>
 
 <gazebo reference="cabeca_1">
   <material>${body_color}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
+  <mu1>500</mu1>
+  <mu2>400</mu2>
+  <selfCollide>false</selfCollide>
 </gazebo>
 
 <gazebo reference="ombro_esquerdo_1">
   <material>${body_color}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
+  <mu1>500</mu1>
+  <mu2>400</mu2>
+  <selfCollide>false</selfCollide>
 </gazebo>
-
 <gazebo reference="ombro_direito_1">
   <material>${body_color}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
+  <mu1>500</mu1>
+  <mu2>400</mu2>
+  <selfCollide>false</selfCollide>
 </gazebo>
+
+
 
 <gazebo reference="braco_esquerdo_1">
   <material>${body_color}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
+  <mu1>500</mu1>
+  <mu2>400</mu2>
+  <selfCollide>false</selfCollide>
 </gazebo>
-
 <gazebo reference="braco_direito_1">
   <material>${body_color}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
+  <mu1>500</mu1>
+  <mu2>400</mu2>
+  <selfCollide>false</selfCollide>
 </gazebo>
+
+
 
 <gazebo reference="mao_esquerda_1">
   <material>${body_color}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
+  <mu1>500</mu1>
+  <mu2>400</mu2>
+  <selfCollide>false</selfCollide>
 </gazebo>
 
 <gazebo reference="mao_direita_1">
   <material>${body_color}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
+  <mu1>500</mu1>
+  <mu2>400</mu2>
+  <selfCollide>false</selfCollide>
 </gazebo>
 
 <gazebo reference="quadril_esquerdo_1">
   <material>${body_color}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
+  <mu1>500</mu1>
+  <mu2>400</mu2>
+  <kp>${Kp_quadril}</kp>
+  <kd>${Kd_quadril}</kd>
+  <selfCollide>false</selfCollide>
+</gazebo>
+<gazebo reference="quadril_direito_1">
+  <material>${body_color}</material>
+  <mu1>500</mu1>
+  <mu2>400</mu2>
+  <kp>${Kp_quadril}</kp>
+  <kd>${Kd_quadril}</kd>
+  <selfCollide>false</selfCollide>
 </gazebo>
 
-<gazebo reference="coxa_esquerda_1">
-  <material>${body_color}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
-</gazebo>
 
-<gazebo reference="canela_esquerda_2_1">
-  <material>${body_color}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
-</gazebo>
 
 <gazebo reference="canela_esquerda_1">
   <material>${body_color}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
+  <mu1>500</mu1>
+  <mu2>400</mu2>
+  <kp>${Kp_canela_1}</kp>
+  <kd>${Kd_canela_1}</kd>
+  <selfCollide>false</selfCollide>
 </gazebo>
+<gazebo reference="canela_direita_1">
+  <material>${body_color}</material>
+  <mu1>500</mu1>
+  <mu2>400</mu2>
+  <kp>${Kp_canela_1}</kp>
+  <kd>${Kd_canela_1}</kd>
+  <selfCollide>false</selfCollide>
+</gazebo>
+
+
 
 <gazebo reference="calcanhar_esquerdo_1">
   <material>${body_color}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
+  <mu1>500</mu1>
+  <mu2>400</mu2>
+  <kp>${Kp_calcanhar}</kp>
+  <kd>${Kd_calcanhar}</kd>
+  <selfCollide>false</selfCollide>
 </gazebo>
+<gazebo reference="calcanhar_direito_1">
+  <material>${body_color}</material>
+  <mu1>500</mu1>
+  <mu2>400</mu2>
+  <kp>${Kp_calcanhar}</kp>
+  <kd>${Kd_calcanhar}</kd>
+  <selfCollide>false</selfCollide>
+</gazebo>
+
+
+
+
+<gazebo reference="canela_esquerda_2_1">
+  <material>${body_color}</material>
+  <mu1>500</mu1>
+  <mu2>400</mu2>
+  <kp>${Kp_canela_2}</kp>
+  <kd>${Kd_canela_2}</kd>
+  <selfCollide>false</selfCollide>
+</gazebo>
+<gazebo reference="canela_direita_2_1">
+  <material>${body_color}</material>
+  <mu1>500</mu1>
+  <mu2>400</mu2>
+  <kp>${Kp_canela_2}</kp>
+  <kd>${Kd_canela_2}</kd>
+  <selfCollide>false</selfCollide>
+</gazebo>
+
+
+
+
+<gazebo reference="coxa_esquerda_1">
+  <material>${body_color}</material>
+  <mu1>500</mu1>
+  <mu2>400</mu2>
+  <kp>${Kp_coxa_1}</kp>
+  <kd>${Kd_coxa_1}</kd>
+  <selfCollide>false</selfCollide>
+</gazebo>
+<gazebo reference="coxa_direita_1">
+  <material>${body_color}</material>
+  <mu1>500</mu1>
+  <mu2>400</mu2>
+  <kp>${Kp_coxa_1}</kp>
+  <kd>${Kd_coxa_1}</kd>
+  <selfCollide>false</selfCollide>
+</gazebo>
+
+
+
 
 <gazebo reference="pe_esquerdo_1">
   <material>${body_color}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
+  <mu1>500</mu1>
+  <mu2>400</mu2>
+  <kp>${Kp_pe}</kp>
+  <kd>${Kd_pe}</kd>
+  <selfCollide>false</selfCollide>
 </gazebo>
-
 <gazebo reference="pe_direito_1">
   <material>${body_color}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
-</gazebo>
-
-<gazebo reference="calcanhar_direito_1">
-  <material>${body_color}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
-</gazebo>
-
-<gazebo reference="canela_direita_2_1">
-  <material>${body_color}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
-</gazebo>
-
-<gazebo reference="canela_direita_1">
-  <material>${body_color}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
-</gazebo>
-
-<gazebo reference="coxa_direita_1">
-  <material>${body_color}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
-</gazebo>
-
-<gazebo reference="quadril_direito_1">
-  <material>${body_color}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
+  <mu1>500</mu1>
+  <mu2>400</mu2>
+  <kp>${Kp_pe}</kp>
+  <kd>${Kd_pe}</kd>
+  <selfCollide>false</selfCollide>
 </gazebo>
 
 </robot>

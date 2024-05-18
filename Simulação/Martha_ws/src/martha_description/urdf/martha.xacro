@@ -334,7 +334,7 @@
     <inertia ixx="0.00013469"	ixy="0.00000867"	ixz="0.00000565"
 	           iyx="0.00000867"	iyy="0.00007646"	iyz="0.00004294"
 	           izx="0.00000565"	izy="0.00004294"	izz="0.00008670"/>
-  </inertial>
+    </inertial>
   <visual>
     <origin xyz="-0.0405 -0.01215 0.240425" rpy="0 0 0"/>
     <geometry>
@@ -352,10 +352,12 @@
 
 <link name="pe_direito_1">
   <inertial>
-    <origin xyz="0.0034112806849334876 -0.026374357215448188 -0.035772752451398604" rpy="0 0 0"/>
-    <mass value="0.3345781415997994"/>
-    <inertia ixx="0.000319" iyy="0.000148" izz="0.00038" ixy="5e-06" iyz="-3e-06" ixz="6e-06"/>
-  </inertial>
+    <origin xyz="-0.003474406179630303 -0.025760560273646108 -0.03643473231799649" rpy="0 0 0"/>
+    <mass value="0.04184724"/>
+    <inertia ixx="0.00013469"	ixy="0.00000867"	ixz="0.00000565"
+	           iyx="0.00000867"	iyy="0.00007646"	iyz="0.00004294"
+	           izx="0.00000565"	izy="0.00004294"	izz="0.00008670"/>
+    </inertial>
   <visual>
     <origin xyz="0.0395 -0.01215 0.240425" rpy="0 0 0"/>
     <geometry>
@@ -492,6 +494,7 @@
   <parent link="base_link"/>
   <child link="pescoco_1"/>
   <axis xyz="-0.0 -0.0 1.0"/>
+  <limit effort="1000.0" velocity="0.01"/>
 </joint>
 
 <joint name="cabeca_rX" type="continuous">
@@ -499,6 +502,7 @@
   <parent link="pescoco_1"/>
   <child link="cabeca_1"/>
   <axis xyz="1.0 -0.0 0.0"/>
+  <limit effort="1000.0" velocity="0.01"/>
 </joint>
 
 <joint name="ombro_esquerdo_rX" type="continuous">
@@ -506,6 +510,7 @@
   <parent link="base_link"/>
   <child link="ombro_esquerdo_1"/>
   <axis xyz="1.0 0.0 -0.0"/>
+  <limit effort="1000.0" velocity="0.01"/>
 </joint>
 
 <joint name="ombro_direito_rX" type="continuous">
@@ -513,6 +518,7 @@
   <parent link="base_link"/>
   <child link="ombro_direito_1"/>
   <axis xyz="-1.0 -0.0 0.0"/>
+  <limit effort="1000.0" velocity="0.01"/>
 </joint>
 
 <joint name="ombro_esquerdo_rY" type="continuous">
@@ -520,6 +526,7 @@
   <parent link="ombro_esquerdo_1"/>
   <child link="braco_esquerdo_1"/>
   <axis xyz="0.0 -1.0 0.0"/>
+  <limit effort="1000.0" velocity="0.01"/>
 </joint>
 
 <joint name="ombro_direito_rY" type="continuous">
@@ -527,6 +534,7 @@
   <parent link="ombro_direito_1"/>
   <child link="braco_direito_1"/>
   <axis xyz="0.0 -1.0 -0.0"/>
+  <limit effort="1000.0" velocity="0.01"/>
 </joint>
 
 <joint name="mao_esquerda" type="continuous">
@@ -534,6 +542,7 @@
   <parent link="braco_esquerdo_1"/>
   <child link="mao_esquerda_1"/>
   <axis xyz="1.0 0.0 -0.0"/>
+  <limit effort="1000.0" velocity="0.01"/>
 </joint>
 
 <joint name="mao_direita" type="continuous">
@@ -541,6 +550,7 @@
   <parent link="braco_direito_1"/>
   <child link="mao_direita_1"/>
   <axis xyz="1.0 0.0 -0.0"/>
+  <limit effort="1000.0" velocity="0.01"/>
 </joint>
 
 <joint name="quadril_esquerdo_rZ" type="continuous">
@@ -548,6 +558,7 @@
   <parent link="base_link"/>
   <child link="quadril_esquerdo_1"/>
   <axis xyz="0.0 0.0 -1.0"/>
+  <limit effort="1000.0" velocity="0.01"/>
 </joint>
 
 <joint name="quadril_esquerdo_rY" type="continuous">
@@ -555,6 +566,7 @@
   <parent link="quadril_esquerdo_1"/>
   <child link="coxa_esquerda_1"/>
   <axis xyz="0.0 -1.0 -0.0"/>
+  <limit effort="1000.0" velocity="0.01"/>
 </joint>
 
 <joint name="joelho_esquerdo_rX" type="continuous">
@@ -562,6 +574,7 @@
   <parent link="canela_esquerda_1"/>
   <child link="canela_esquerda_2_1"/>
   <axis xyz="-1.0 -0.0 -0.0"/>
+  <limit effort="1000.0" velocity="0.01"/>
 </joint>
 
 <joint name="quadril_esquerdo_rX" type="continuous">
@@ -569,6 +582,7 @@
   <parent link="coxa_esquerda_1"/>
   <child link="canela_esquerda_1"/>
   <axis xyz="1.0 0.0 0.0"/>
+  <limit effort="1000.0" velocity="0.01"/>
 </joint>
 
 <joint name="tornozelo_esquerdo_rX" type="continuous">
@@ -576,6 +590,7 @@
   <parent link="canela_esquerda_2_1"/>
   <child link="calcanhar_esquerdo_1"/>
   <axis xyz="1.0 0.0 0.0"/>
+  <limit effort="1000.0" velocity="0.01"/>
 </joint>
 
 <joint name="tornozelo_esquerdo_rY" type="continuous">
@@ -583,6 +598,7 @@
   <parent link="calcanhar_esquerdo_1"/>
   <child link="pe_esquerdo_1"/>
   <axis xyz="-0.0 1.0 0.0"/>
+  <limit effort="1000.0" velocity="0.01"/>
 </joint>
 
 <joint name="tornozelo_direito_rY" type="continuous">
@@ -590,6 +606,7 @@
   <parent link="calcanhar_direito_1"/>
   <child link="pe_direito_1"/>
   <axis xyz="-0.0 1.0 0.0"/>
+  <limit effort="1000.0" velocity="0.01"/>
 </joint>
 
 <joint name="tornozelo_direito_rX" type="continuous">
@@ -597,6 +614,7 @@
   <parent link="canela_direita_2_1"/>
   <child link="calcanhar_direito_1"/>
   <axis xyz="1.0 0.0 0.0"/>
+  <limit effort="1000.0" velocity="0.01"/>
 </joint>
 
 <joint name="joelho_direito_rX" type="continuous">
@@ -604,6 +622,7 @@
   <parent link="canela_direita_1"/>
   <child link="canela_direita_2_1"/>
   <axis xyz="-1.0 -0.0 -0.0"/>
+  <limit effort="1000.0" velocity="0.01"/>
 </joint>
 
 <joint name="quadril_direito_rX" type="continuous">
@@ -611,6 +630,7 @@
   <parent link="coxa_direita_1"/>
   <child link="canela_direita_1"/>
   <axis xyz="1.0 0.0 0.0"/>
+  <limit effort="1000.0" velocity="0.01"/>
 </joint>
 
 <joint name="quadril_direito_rY" type="continuous">
@@ -618,6 +638,7 @@
   <parent link="quadril_direito_1"/>
   <child link="coxa_direita_1"/>
   <axis xyz="0.0 -1.0 -0.0"/>
+  <limit effort="1000.0" velocity="0.01"/>
 </joint>
 
 <joint name="quadril_direito_rZ" type="continuous">
@@ -625,6 +646,7 @@
   <parent link="base_link"/>
   <child link="quadril_direito_1"/>
   <axis xyz="0.0 0.0 -1.0"/>
+  <limit effort="1000.0" velocity="0.01"/>
 </joint>
 
 </robot>

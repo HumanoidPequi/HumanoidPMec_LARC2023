@@ -16,7 +16,29 @@
   <!--<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>-->
   
   <!-- Spawn do modelo do robo no Gazebo -->
-  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model martha -x 0 -y 0 -z 0.284275 -R 0 -P 0 -Y 0"/>
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" 
+  args="-param robot_description -urdf -model martha -x 0 -y 0 -z 0.284275 -R 0 -P 0 -Y 0 
+  -J pescoco_rZ 0
+  -J cabeca_rX 0
+  -J ombro_esquerdo_rX 0
+  -J ombro_esquerdo_rY 0
+  -J ombro_direito_rX 0
+  -J ombro_direito_rY 0
+  -J mao_esquerda 0
+  -J mao_direita 0
+  -J quadril_esquerdo_rX 0
+  -J quadril_esquerdo_rY 0
+  -J quadril_esquerdo_rZ 0
+  -J quadril_direito_rX 0
+  -J quadril_direito_rY 0
+  -J quadril_direito_rZ 0
+  -J joelho_esquerdo_rX 0
+  -J joelho_esquerdo_rY 0
+  -J tornozelo_esquerdo_rX 0
+  -J tornozelo_esquerdo_rY 0
+  -J tornozelo_direito_rY 0
+  -J tornozelo_direito_rX 0
+  "/>
 
   <!-- Incluir os controladores de juntas -->
   <include file="$(find martha_gazebo)/launch/controller.launch"/>
