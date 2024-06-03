@@ -5,6 +5,7 @@
 <xacro:include filename="$(find martha_description)/urdf/martha.trans" />
 <xacro:include filename="$(find martha_description)/urdf/martha.gazebo" />
 <xacro:include filename="$(find martha_description)/urdf/camera.xacro" />
+<xacro:include filename="$(find martha_description)/urdf/IMU.xacro" />
 <link name="base_link">
   <inertial>
     <origin xyz="-0.00023301230905643097 -0.008767749720889163 0.08499100214486582" rpy="0 0 0"/>
@@ -649,4 +650,7 @@
   <limit effort="1000.0" velocity="0.01"/>
 </joint>
 
+<xacro:imu_sensor parent="base_link" ns="martha" origin="0 0 0 0 0 0"/>
+
+<xacro:camera_sensor parent="cabeca_1" camera_name="front_camera" ns="martha" origin="-0.02060 -0.050864 0.047202 0 0 -1.57"/>
 </robot>
