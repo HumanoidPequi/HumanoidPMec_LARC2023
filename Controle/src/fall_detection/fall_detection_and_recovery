@@ -1,0 +1,79 @@
+#!/usr/bin/env python
+
+import rospy
+from sensor_msgs.msg import Imu
+from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
+
+class FallDetectionAndRecovery:
+    def __init__(self):
+        rospy.init_node('fall_detection_and_recovery', anonymous=True)
+
+        # Subscriber for IMU data
+        self.imu_sub = rospy.Subscriber('/imu/data', Imu, self.imu_callback)
+
+        # Publisher for joint trajectories
+        self.joint_traj_pub = rospy.Publisher('/robot/joint_trajectory_controller/command', JointTrajectory, queue_size=10)
+
+        self.pitch = 0.0
+        self.roll = 0.0
+        self.fallen = False
+        self.fall_type = None
+
+    def imu_callback(self, data):
+        self.pitch = data.orientation.x
+        self.roll = data.orientation.y
+
+        if self.pitch < -0.5:
+            self.fall_type = "front"
+            self.fallen = True
+        elif self.pitch > 0.5:
+            self.fall_type = "back"
+            self.fallen = True
+
+        if self.fallen:
+            self.recover()
+
+    def recover(self):
+        if self.fall_type == "front":
+            self.get_up_from_front()
+        elif self.fall_type == "back":
+            self.get_up_from_back()
+        self.reset_to_initial_position()
+        self.fallen = False
+
+    def send_joint_trajectory(self, joint_names, positions, time_from_start):
+        traj = JointTrajectory()
+        traj.joint_names = joint_names
+        point = JointTrajectoryPoint()
+        point.positions = positions
+        point.time_from_start = rospy.Duration(time_from_start)
+        traj.points.append(point)
+        self.joint_traj_pub.publish(traj)
+
+    def get_up_from_front(self):
+        rospy.loginfo("Executing get up from front sequence...")
+        joint_names = [ 'braco_esquerdo_1', 'braco_direito_1', 'mao_esquerda_1', 'mao_direita_1', 'coxa_esquerda_1', 'coxa_direita_1', 'canela_esquerda_2_1', 'canela_direita_2_1', 'tornozelo_esquerdo_1', 'tornozelo_direito_1']
+        positions = [0.75, 0.75, 1.5, 1.5, 0.75, 0.75, -0.485, -0.485, 0.485, 0.485]
+        self.send_joint_trajectory(joint_names, positions, 2.0)
+        rospy.sleep(2.0)
+
+    def get_up_from_back(self):
+        rospy.loginfo("Executing get up from back sequence...")
+        joint_names = [ 'braco_esquerdo_1', 'braco_direito_1', 'mao_esquerda_1', 'mao_direita_1', 'coxa_esquerda_1', 'coxa_direita_1', 'canela_esquerda_2_1', 'canela_direita_2_1', 'tornozelo_esquerdo_1', 'tornozelo_direito_1']
+        positions = [-0.75, -0.75, 1.5, 1.5, -0.75, -0.75, -0.485, -0.485, 0.485, 0.485]
+        self.send_joint_trajectory(joint_names, positions, 2.0)
+        rospy.sleep(2.0)
+
+    def reset_to_initial_position(self):
+        rospy.loginfo("Resetting to initial position...")
+        joint_names = ['joint_1', 'joint_2', 'joint_3', 'joint_4']
+        positions = [0.0, 0.0, 0.0, 0.0]
+        self.send_joint_trajectory(joint_names, positions, 2.0)
+        rospy.sleep(2.0)
+
+if __name__ == '__main__':
+    try:
+        FallDetectionAndRecovery()
+    except rospy.ROSInterruptException:
+        pass
+
