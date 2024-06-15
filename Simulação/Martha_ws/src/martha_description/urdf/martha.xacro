@@ -650,6 +650,166 @@
   <limit effort="1000.0" velocity="0.01"/>
 </joint>
 
+<joint name="base_link_to_pescoco_1" type="revolute">
+  <parent link="base_link"/>
+  <child link="pescoco_1"/>
+  <origin xyz="0.0 -0.0114 0.191473" rpy="0 0 0"/>
+  <axis xyz="-0.0 -0.0 1.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="1000.0" velocity="0.01"/>
+</joint>
+
+<joint name="pescoco_1_to_cabeca_1" type="revolute">
+  <parent link="pescoco_1"/>
+  <child link="cabeca_1"/>
+  <origin xyz="0.021 0.0 0.029" rpy="0 0 0"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="1000.0" velocity="0.01"/>
+</joint>
+
+<joint name="base_link_to_ombro_esquerdo_1" type="revolute">
+  <parent link="base_link"/>
+  <child link="ombro_esquerdo_1"/>
+  <origin xyz="0.0771 -0.01 0.16273" rpy="0 0 0"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="1000.0" velocity="0.01"/>
+</joint>
+
+<joint name="base_link_to_ombro_direito_1" type="revolute">
+  <parent link="base_link"/>
+  <child link="ombro_direito_1"/>
+  <origin xyz="-0.0771 -0.01 0.16273" rpy="0 0 0"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="1000.0" velocity="0.01"/>
+</joint>
+
+<joint name="ombro_esquerdo_1_to_braco_esquerdo_1" type="revolute">
+  <parent link="ombro_esquerdo_1"/>
+  <child link="braco_esquerdo_1"/>
+  <origin xyz="0.02 -0.021 -0.0145" rpy="0 0 0"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="1000.0" velocity="0.01"/>
+</joint>
+
+<joint name="ombro_direito_1_to_braco_direito_1" type="revolute">
+  <parent link="ombro_direito_1"/>
+  <child link="braco_direito_1"/>
+  <origin xyz="-0.02 -0.021 -0.0145" rpy="0 0 0"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="1000.0" velocity="0.01"/>
+</joint>
+
+<joint name="braco_esquerdo_1_to_mao_esquerda_1" type="revolute">
+  <parent link="braco_esquerdo_1"/>
+  <child link="mao_esquerda_1"/>
+  <origin xyz="0.02075 0.02074 -0.0996" rpy="0 0 0"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="1000.0" velocity="0.01"/>
+</joint>
+
+<joint name="braco_direito_1_to_mao_direita_1" type="revolute">
+  <parent link="braco_direito_1"/>
+  <child link="mao_direita_1"/>
+  <origin xyz="-0.02075 0.02074 -0.0996" rpy="0 0 0"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="1000.0" velocity="0.01"/>
+</joint>
+
+<joint name="base_link_to_quadril_esquerdo_1" type="revolute">
+  <parent link="base_link"/>
+  <child link="quadril_esquerdo_1"/>
+  <origin xyz="0.04 -0.01 -0.0044" rpy="0 0 0"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="1000.0" velocity="0.01"/>
+</joint>
+
+<joint name="quadril_esquerdo_1_to_coxa_esquerda_1" type="revolute">
+  <parent link="quadril_esquerdo_1"/>
+  <child link="coxa_esquerda_1"/>
+  <origin xyz="0.0 0.02215 -0.0355" rpy="0 0 0"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="1000.0" velocity="0.01"/>
+</joint>
+
+<joint name="canela_esquerda_1_to_canela_esquerda_2_1" type="revolute">
+  <parent link="canela_esquerda_1"/>
+  <child link="canela_esquerda_2_1"/>
+  <origin xyz="0.00235 0.0 -0.1005" rpy="0 0 0"/>
+  <axis xyz="-1.0 -0.0 -0.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="1000.0" velocity="0.01"/>
+</joint>
+
+<joint name="coxa_esquerda_1_to_canela_esquerda_1" type="revolute">
+  <parent link="coxa_esquerda_1"/>
+  <child link="canela_esquerda_1"/>
+  <origin xyz="-0.0226 -0.01945 0.0" rpy="0 0 0"/>
+  <axis xyz="1.0 0.0 0.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="1000.0" velocity="0.01"/>
+</joint>
+
+<joint name="canela_esquerda_2_1_to_calcanhar_esquerdo_1" type="revolute">
+  <parent link="canela_esquerda_2_1"/>
+  <child link="calcanhar_esquerdo_1"/>
+  <origin xyz="0.04335 0.0 -0.100025" rpy="0 0 0"/>
+  <axis xyz="1.0 0.0 0.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="1000.0" velocity="0.01"/>
+</joint>
+
+<joint name="calcanhar_esquerdo_1_to_pe_esquerdo_1" type="revolute">
+  <parent link="calcanhar_esquerdo_1"/>
+  <child link="pe_esquerdo_1"/>
+  <origin xyz="-0.0226 0.01945 0.0" rpy="0 0 0"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="1000.0" velocity="0.01"/>
+</joint>
+
+<joint name="calcanhar_direito_1_to_pe_direito_1" type="revolute">
+  <parent link="calcanhar_direito_1"/>
+  <child link="pe_direito_1"/>
+  <origin xyz="-0.0226 0.01945 0.0" rpy="0 0 0"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="1000.0" velocity="0.01"/>
+</joint>
+
+<joint name="canela_direita_2_1_to_calcanhar_direito_1" type="revolute">
+  <parent link="canela_direita_2_1"/>
+  <child link="calcanhar_direito_1"/>
+  <origin xyz="0.04335 0.0 -0.100025" rpy="0 0 0"/>
+  <axis xyz="1.0 0.0 0.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="1000.0" velocity="0.01"/>
+</joint>
+
+<joint name="canela_direita_1_to_canela_direita_2_1" type="revolute">
+  <parent link="canela_direita_1"/>
+  <child link="canela_direita_2_1"/>
+  <origin xyz="0.00235 0.0 -0.1005" rpy="0 0 0"/>
+  <axis xyz="-1.0 -0.0 -0.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="1000.0" velocity="0.01"/>
+</joint>
+
+<joint name="coxa_direita_1_to_canela_direita_1" type="revolute">
+  <parent link="coxa_direita_1"/>
+  <child link="canela_direita_1"/>
+  <origin xyz="-0.0226 -0.01945 0.0" rpy="0 0 0"/>
+  <axis xyz="1.0 0.0 0.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="1000.0" velocity="0.01"/>
+</joint>
+
+<joint name="quadril_direito_1_to_coxa_direita_1" type="revolute">
+  <parent link="quadril_direito_1"/>
+  <child link="coxa_direita_1"/>
+  <origin xyz="0.0 0.02215 -0.0355" rpy="0 0 0"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="1000.0" velocity="0.01"/>
+</joint>
+
+<joint name="base_link_to_quadril_direito_1" type="revolute">
+  <parent link="base_link"/>
+  <child link="quadril_direito_1"/>
+  <origin xyz="-0.04 -0.01 -0.0044" rpy="0 0 0"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+  <limit lower="-3.14159" upper="3.14159" effort="1000.0" velocity="0.01"/>
+</joint>
+
 <xacro:imu_sensor parent="base_link" ns="martha" origin="0 0 0 0 0 0"/>
 
 <xacro:camera_sensor parent="cabeca_1" camera_name="front_camera" ns="martha" origin="-0.02060 -0.050864 0.047202 0 0 -1.57"/>
