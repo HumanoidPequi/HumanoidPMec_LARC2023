@@ -5,9 +5,9 @@ import numpy as np
 
 class FallDetection:
     def __init__(self):
-        rospy.Subscriber("/robotis_op3/imu", Imu, self.imu_callback)
+        rospy.Subscriber("/martha/imu", Imu, self.imu_callback)
         self.is_fallen = False
-        self.threshold = 0.5  # Ajuste conforme necessário
+        self.threshold = 0.5  # Ajustar conforme necessário
 
     def imu_callback(self, data):
         acc = data.linear_acceleration
@@ -25,35 +25,94 @@ class FallDetection:
 
 class GetUp:
     def __init__(self):
-        # Publicadores para as articulações
+        # Publicadores para as articulações especificadas
         self.joint_publishers = {
-            'r_shoulder_pitch': rospy.Publisher('/robotis_op3/r_shoulder_pitch_position/command', Float64, queue_size=10),
-            'l_shoulder_pitch': rospy.Publisher('/robotis_op3/l_shoulder_pitch_position/command', Float64, queue_size=10),
-            'r_shoulder_roll': rospy.Publisher('/robotis_op3/r_shoulder_roll_position/command', Float64, queue_size=10),
-            'l_shoulder_roll': rospy.Publisher('/robotis_op3/l_shoulder_roll_position/command', Float64, queue_size=10),
-            'r_elbow': rospy.Publisher('/robotis_op3/r_elbow_position/command', Float64, queue_size=10),
-            'l_elbow': rospy.Publisher('/robotis_op3/l_elbow_position/command', Float64, queue_size=10),
-            'r_hip_yaw': rospy.Publisher('/robotis_op3/r_hip_yaw_position/command', Float64, queue_size=10),
-            'l_hip_yaw': rospy.Publisher('/robotis_op3/l_hip_yaw_position/command', Float64, queue_size=10),
-            'r_hip_roll': rospy.Publisher('/robotis_op3/r_hip_roll_position/command', Float64, queue_size=10),
-            'l_hip_roll': rospy.Publisher('/robotis_op3/l_hip_roll_position/command', Float64, queue_size=10),
-            'r_hip_pitch': rospy.Publisher('/robotis_op3/r_hip_pitch_position/command', Float64, queue_size=10),
-            'l_hip_pitch': rospy.Publisher('/robotis_op3/l_hip_pitch_position/command', Float64, queue_size=10),
-            'r_knee': rospy.Publisher('/robotis_op3/r_knee_position/command', Float64, queue_size=10),
-            'l_knee': rospy.Publisher('/robotis_op3/l_knee_position/command', Float64, queue_size=10),
-            'r_ankle_pitch': rospy.Publisher('/robotis_op3/r_ankle_pitch_position/command', Float64, queue_size=10),
-            'l_ankle_pitch': rospy.Publisher('/robotis_op3/l_ankle_pitch_position/command', Float64, queue_size=10),
-            'r_ankle_roll': rospy.Publisher('/robotis_op3/r_ankle_roll_position/command', Float64, queue_size=10),
-            'l_ankle_roll': rospy.Publisher('/robotis_op3/l_ankle_roll_position/command', Float64, queue_size=10),
+            'base_link': rospy.Publisher('/martha/base_link_position/command', Float64, queue_size=10),
+            'pescoco_1': rospy.Publisher('/martha/pescoco_1_position/command', Float64, queue_size=10),
+            'cabeca_1': rospy.Publisher('/martha/cabeca_1_position/command', Float64, queue_size=10),
+            'ombro_esquerdo_1': rospy.Publisher('/martha/ombro_esquerdo_1_position/command', Float64, queue_size=10),
+            'ombro_direito_1': rospy.Publisher('/martha/ombro_direito_1_position/command', Float64, queue_size=10),
+            'braco_esquerdo_1': rospy.Publisher('/martha/braco_esquerdo_1_position/command', Float64, queue_size=10),
+            'braco_direito_1': rospy.Publisher('/martha/braco_direito_1_position/command', Float64, queue_size=10),
+            'mao_esquerda_1': rospy.Publisher('/martha/mao_esquerda_1_position/command', Float64, queue_size=10),
+            'mao_direita_1': rospy.Publisher('/martha/mao_direita_1_position/command', Float64, queue_size=10),
+            'quadril_esquerdo_1': rospy.Publisher('/martha/quadril_esquerdo_1_position/command', Float64, queue_size=10),
+            'coxa_esquerda_1': rospy.Publisher('/martha/coxa_esquerda_1_position/command', Float64, queue_size=10),
+            'canela_esquerda_2_1': rospy.Publisher('/martha/canela_esquerda_2_1_position/command', Float64, queue_size=10),
+            'canela_esquerda_1': rospy.Publisher('/martha/canela_esquerda_1_position/command', Float64, queue_size=10),
+            'calcanhar_esquerdo_1': rospy.Publisher('/martha/calcanhar_esquerdo_1_position/command', Float64, queue_size=10),
+            'pe_esquerdo_1': rospy.Publisher('/martha/pe_esquerdo_1_position/command', Float64, queue_size=10),
+            'pe_direito_1': rospy.Publisher('/martha/pe_direito_1_position/command', Float64, queue_size=10),
+            'calcanhar_direito_1': rospy.Publisher('/martha/calcanhar_direito_1_position/command', Float64, queue_size=10),
+            'canela_direita_2_1': rospy.Publisher('/martha/canela_direita_2_1_position/command', Float64, queue_size=10),
+            'canela_direita_1': rospy.Publisher('/martha/canela_direita_1_position/command', Float64, queue_size=10),
+            'coxa_direita_1': rospy.Publisher('/martha/coxa_direita_1_position/command', Float64, queue_size=10),
+            'quadril_direito_1': rospy.Publisher('/martha/quadril_direito_1_position/command', Float64, queue_size=10),
         }
 
     def get_up(self):
         # Sequência de ângulos para levantar o robô
-        # Exemplo de sequência - ajustar conforme necessário
         sequences = [
-            {'r_shoulder_pitch': -1.0, 'l_shoulder_pitch': -1.0, 'r_hip_pitch': 1.0, 'l_hip_pitch': 1.0},  # Preparação inicial
-            {'r_shoulder_pitch': -0.5, 'l_shoulder_pitch': -0.5, 'r_knee': -1.0, 'l_knee': -1.0},  # Início do levantamento
-            {'r_shoulder_pitch': 0.0, 'l_shoulder_pitch': 0.0, 'r_knee': 0.0, 'l_knee': 0.0},  # Levantamento completo
+            {
+                'base_link': 0.0, 'pescoco_1': 0.0, 'cabeca_1': 0.0,
+                'ombro_esquerdo_1': -1.0, 'ombro_direito_1': -1.0,
+                'braco_esquerdo_1': 0.5, 'braco_direito_1': 0.5,
+                'mao_esquerda_1': 0.0, 'mao_direita_1': 0.0,
+                'quadril_esquerdo_1': 0.5, 'coxa_esquerda_1': 0.5,
+                'canela_esquerda_2_1': 1.0, 'canela_esquerda_1': 0.5,
+                'calcanhar_esquerdo_1': 0.0, 'pe_esquerdo_1': 0.0,
+                'pe_direito_1': 0.0, 'calcanhar_direito_1': 0.0,
+                'canela_direita_2_1': 1.0, 'canela_direita_1': 0.5,
+                'coxa_direita_1': 0.5, 'quadril_direito_1': 0.5
+            },
+            {
+                'base_link': 0.0, 'pescoco_1': 0.1, 'cabeca_1': 0.1,
+                'ombro_esquerdo_1': -0.8, 'ombro_direito_1': -0.8,
+                'braco_esquerdo_1': 0.4, 'braco_direito_1': 0.4,
+                'mao_esquerda_1': 0.1, 'mao_direita_1': 0.1,
+                'quadril_esquerdo_1': 0.4, 'coxa_esquerda_1': 0.4,
+                'canela_esquerda_2_1': 0.9, 'canela_esquerda_1': 0.4,
+                'calcanhar_esquerdo_1': 0.1, 'pe_esquerdo_1': 0.1,
+                'pe_direito_1': 0.1, 'calcanhar_direito_1': 0.1,
+                'canela_direita_2_1': 0.9, 'canela_direita_1': 0.4,
+                'coxa_direita_1': 0.4, 'quadril_direito_1': 0.4
+            },
+            {
+                'base_link': 0.0, 'pescoco_1': 0.2, 'cabeca_1': 0.2,
+                'ombro_esquerdo_1': -0.6, 'ombro_direito_1': -0.6,
+                'braco_esquerdo_1': 0.3, 'braco_direito_1': 0.3,
+                'mao_esquerda_1': 0.2, 'mao_direita_1': 0.2,
+                'quadril_esquerdo_1': 0.3, 'coxa_esquerda_1': 0.3,
+                'canela_esquerda_2_1': 0.8, 'canela_esquerda_1': 0.3,
+                'calcanhar_esquerdo_1': 0.2, 'pe_esquerdo_1': 0.2,
+                'pe_direito_1': 0.2, 'calcanhar_direito_1': 0.2,
+                'canela_direita_2_1': 0.8, 'canela_direita_1': 0.3,
+                'coxa_direita_1': 0.3, 'quadril_direito_1': 0.3
+            },
+            {
+                'base_link': 0.0, 'pescoco_1': 0.3, 'cabeca_1': 0.3,
+                'ombro_esquerdo_1': -0.4, 'ombro_direito_1': -0.4,
+                'braco_esquerdo_1': 0.2, 'braco_direito_1': 0.2,
+                'mao_esquerda_1': 0.3, 'mao_direita_1': 0.3,
+                'quadril_esquerdo_1': 0.2, 'coxa_esquerda_1': 0.2,
+                'canela_esquerda_2_1': 0.7, 'canela_esquerda_1': 0.2,
+                'calcanhar_esquerdo_1': 0.3, 'pe_esquerdo_1': 0.3,
+                'pe_direito_1': 0.3, 'calcanhar_direito_1': 0.3,
+                'canela_direita_2_1': 0.7, 'canela_direita_1': 0.2,
+                'coxa_direita_1': 0.2, 'quadril_direito_1': 0.2
+            },
+            {
+                'base_link': 0.0, 'pescoco_1': 0.4, 'cabeca_1': 0.4,
+                'ombro_esquerdo_1': -0.2, 'ombro_direito_1': -0.2,
+                'braco_esquerdo_1': 0.1, 'braco_direito_1': 0.1,
+                'mao_esquerda_1': 0.4, 'mao_direita_1': 0.4,
+                'quadril_esquerdo_1': 0.1, 'coxa_esquerda_1': 0.1,
+                'canela_esquerda_2_1': 0.6, 'canela_esquerda_1': 0.1,
+                'calcanhar_esquerdo_1': 0.4, 'pe_esquerdo_1': 0.4,
+                'pe_direito_1': 0.4, 'calcanhar_direito_1': 0.4,
+                'canela_direita_2_1': 0.6, 'canela_direita_1': 0.1,
+                'coxa_direita_1': 0.1, 'quadril_direito_1': 0.1
+            },
         ]
 
         for step in sequences:
@@ -62,7 +121,7 @@ class GetUp:
                 rospy.sleep(0.5)  # Tempo de espera para permitir o movimento
 
 if __name__ == '__main__':
-    rospy.init_node('fall_detection_and_getup_darwin_op3')
+    rospy.init_node('fall_detection_and_getup_martha')
 
     fall_detection = FallDetection()
     get_up_controller = GetUp()
@@ -70,6 +129,7 @@ if __name__ == '__main__':
     rate = rospy.Rate(10)  # 10 Hz
     while not rospy.is_shutdown():
         if fall_detection.is_robot_fallen():
-            rospy.loginfo("Robô caiu! Iniciando sequência de levantamento.")
+            rospy.loginfo("Robô caiu. Iniciando sequência de levantamento.")
             get_up_controller.get_up()
         rate.sleep()
+
