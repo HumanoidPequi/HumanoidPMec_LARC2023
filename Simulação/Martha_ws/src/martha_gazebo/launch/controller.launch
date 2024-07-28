@@ -1,7 +1,33 @@
 <launch>
 
   <rosparam file="$(find martha_description)/config/controller.yaml" command="load"/>
-  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="martha" args="pescoco_rZ_position_controller cabeca_rX_position_controller ombro_esquerdo_rX_position_controller ombro_direito_rX_position_controller ombro_esquerdo_rY_position_controller ombro_direito_rY_position_controller mao_esquerda_position_controller mao_direita_position_controller quadril_esquerdo_rZ_position_controller quadril_esquerdo_rY_position_controller joelho_esquerdo_rX_position_controller quadril_esquerdo_rX_position_controller tornozelo_esquerdo_rX_position_controller tornozelo_esquerdo_rY_position_controller tornozelo_direito_rY_position_controller tornozelo_direito_rX_position_controller joelho_direito_rX_position_controller quadril_direito_rX_position_controller quadril_direito_rY_position_controller quadril_direito_rZ_position_controller joint_state_controller "/>
+  <node name="controller_spawner"
+    pkg="controller_manager"
+    type="spawner"
+    respawn="false"
+    output="screen"
+    ns="martha"
+    args="pescoco_rZ_position_controller 
+          cabeca_rX_position_controller 
+          ombro_esquerdo_rX_position_controller 
+          ombro_direito_rX_position_controller 
+          ombro_esquerdo_rY_position_controller 
+          ombro_direito_rY_position_controller 
+          mao_esquerda_position_controller 
+          mao_direita_position_controller 
+          quadril_esquerdo_rZ_position_controller 
+          quadril_esquerdo_rY_position_controller 
+          joelho_esquerdo_rX_position_controller 
+          quadril_esquerdo_rX_position_controller 
+          tornozelo_esquerdo_rX_position_controller 
+          tornozelo_esquerdo_rY_position_controller 
+          tornozelo_direito_rY_position_controller 
+          tornozelo_direito_rX_position_controller 
+          joelho_direito_rX_position_controller 
+          quadril_direito_rX_position_controller 
+          quadril_direito_rY_position_controller 
+          quadril_direito_rZ_position_controller 
+          joint_state_controller "/>
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
     <remap from="/joint_states" to="/martha/joint_states"/>
   </node>
