@@ -506,20 +506,20 @@
   <limit lower="-3.14159" upper="3.14159" effort="1000.0" velocity="0.01"/>
 </joint>
 
-<joint name="ombro_esquerdo_rX" type="revolute">
+<joint name="ombro_esquerdo_rX" type="continuous">
   <origin xyz="0.0771 -0.01 0.16273" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="ombro_esquerdo_1"/>
   <axis xyz="1.0 0.0 -0.0"/>
-  <limit lower="-3.14159" upper="3.14159" effort="1000.0" velocity="0.01"/>
+  <limit effort="1000.0" velocity="0.01"/>
 </joint>
 
-<joint name="ombro_direito_rX" type="revolute">
+<joint name="ombro_direito_rX" type="continuous">
   <origin xyz="-0.0771 -0.01 0.16273" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="ombro_direito_1"/>
   <axis xyz="-1.0 -0.0 0.0"/>
-  <limit lower="-3.14159" upper="3.14159" effort="1000.0" velocity="0.01"/>
+  <limit effort="1000.0" velocity="0.01"/>
 </joint>
 
 <joint name="ombro_esquerdo_rY" type="revolute">
