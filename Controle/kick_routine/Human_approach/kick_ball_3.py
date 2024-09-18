@@ -1,57 +1,84 @@
-################### STILL UNTESTED ###################
+################### UNTESTED ###################
 
 #!/usr/bin/env python
 
 import rospy
-from std_msgs.msg import Bool
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
+from std_msgs.msg import Header, Bool
+import math
 
-class KickBall:
+class KickController:
     def __init__(self):
-        rospy.init_node('kick_ball', anonymous=True)
+        rospy.init_node('kick_controller', anonymous=True)
 
-        # Subscriber for kick command
+        # Subscrição para o comando de chute
         self.kick_sub = rospy.Subscriber('/kick_command', Bool, self.kick_callback)
+        self.pub = rospy.Publisher('/humanoid/joint_trajectory_controller/command', JointTrajectory, queue_size=10)
 
-        # Publisher for joint trajectories
-        self.joint_traj_pub = rospy.Publisher('/martha/joint_trajectory_controller/command', JointTrajectory, queue_size=10)
+        # Comprimentos aproximados da coxa e da perna, com base no modelo
+        self.thigh_length = 0.4  # Comprimento da coxa em metros (aproximado)
+        self.shin_length = 0.4   # Comprimento da perna em metros (aproximado)
+
+        # Definir as juntas reais usadas para o movimento de chute
+        self.joint_names = ['quadril_esquerdo_rX', 'joelho_esquerdo_rX', 'tornozelo_esquerdo_rX']
 
     def kick_callback(self, data):
         if data.data:
-            self.execute_kick()
+            # Posição alvo desejada para o pé ao chutar a bola (x, y)
+            target_position = [0.3, -0.5]  # Exemplo de coordenadas alvo para o pé
+            joint_angles = self.inverse_kinematics(target_position)
+            self.perform_kick(joint_angles)
 
-    def send_joint_trajectory(self, joint_names, positions, time_from_start):
-        traj = JointTrajectory()
-        traj.joint_names = joint_names
+    def inverse_kinematics(self, target_position):
+        x, y = target_position
+
+        # Calcular a distância até o ponto alvo
+        distance = math.sqrt(x**2 + y**2)
+
+        # Verificar se o alvo está dentro do alcance da perna
+        if distance > (self.thigh_length + self.shin_length):
+            raise ValueError("Target position is out of reach")
+
+        # Lei dos Cossenos para calcular o ângulo do joelho
+        cos_knee_angle = (x**2 + y**2 - self.thigh_length**2 - self.shin_length**2) / (2 * self.thigh_length * self.shin_length)
+        knee_angle = math.acos(cos_knee_angle)
+
+        # Lei dos Cossenos para calcular o ângulo do quadril
+        alpha = math.atan2(y, x)
+        cos_hip_angle = (x**2 + y**2 + self.thigh_length**2 - self.shin_length**2) / (2 * self.thigh_length * distance)
+        hip_angle = alpha - math.acos(cos_hip_angle)
+
+        # Ângulo do tornozelo para ajustar a orientação do pé
+        ankle_angle = -(hip_angle + knee_angle)
+
+        return [hip_angle, knee_angle, ankle_angle]
+
+    def move_to_position(self, joint_angles, duration):
+        trajectory = JointTrajectory()
+        trajectory.header = Header()
+        trajectory.joint_names = self.joint_names
+
         point = JointTrajectoryPoint()
-        point.positions = positions
-        point.time_from_start = rospy.Duration(time_from_start)
-        traj.points.append(point)
-        self.joint_traj_pub.publish(traj)
+        point.positions = joint_angles
+        point.time_from_start = rospy.Duration(duration)
 
-    def execute_kick(self):
-        rospy.loginfo("Executing kick sequence...")
+        trajectory.points = [point]
+        self.pub.publish(trajectory)
 
-        # Names of the leg joints for kicking
-        joint_names = ['quadril_esquerdo_rZ', 'quadril_esquerdo_rY', 'joelho_esquerdo_rX', 'tornozelo_esquerdo_rX', 'tornozelo_esquerdo_rY']
+    def perform_kick(self, joint_angles):
+        rospy.loginfo("Starting kick sequence")
 
-        # Step 1: Move leg back (recoil)
-        positions = [-0.3, -0.4, 0.4, 0.2, -0.1]
-        self.send_joint_trajectory(joint_names, positions, 1.0)
+        # Posição de equilíbrio inicial
+        balance_positions = [0.0, 0.0, 0.0]
+        self.move_to_position(balance_positions, 1.0)
         rospy.sleep(1.0)
 
-        # Step 2: Kick forward
-        positions = [0.2, 0.6, -0.3, -0.2, 0.0]
-        self.send_joint_trajectory(joint_names, positions, 0.5)
-        rospy.sleep(0.5)
-
-        # Step 3: Return to initial position
-        positions = [0.0, 0.0, 0.0, 0.0, 0.0]
-        self.send_joint_trajectory(joint_names, positions, 1.0)
+        # Executar o chute com os ângulos calculados
+        self.move_to_position(joint_angles, 1.0)
         rospy.sleep(1.0)
 
-if __name__ == '__main__':
-    try:
-        KickBall()
-    except rospy.ROSInterruptException:
-        pass
+        # Retornar à posição inicial após o chute
+        self.move_to_position(balance_positions, 1.0)
+        rospy.sleep(1.0)
+
+        rospy.loginfo("Kick sequence complete")
