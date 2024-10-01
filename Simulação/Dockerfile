@@ -16,16 +16,20 @@ RUN apt-get update && apt-get install -y \
     ros-$ROS_DISTRO-robot-state-publisher \
     ros-$ROS_DISTRO-xacro \
     ros-$ROS_DISTRO-gazebo-ros \
+    ros-$ROS_DISTRO-gazebo-ros-pkgs \
+    ros-$ROS_DISTRO-gazebo-ros-control \
     ros-$ROS_DISTRO-rviz \
     && rm -rf /var/lib/apt/lists/*
 
 
 # Copiar o diretório pacotes da Martha
+COPY Martha_ws/src/martha_gazebo/src/worlds/robocup_3Dsim_ball /root/.gazebo/models/robocup_3Dsim_ball
+COPY Martha_ws/src/martha_gazebo/src/worlds/robocup09_spl_field /root/.gazebo/models/robocup09_spl_field
 RUN mkdir -p /root/Martha_ws/src
 COPY Martha_ws/src /root/Martha_ws/src
 
 # Construir o workspace
-RUN /bin/bash -c "source /opt/ros/$ROS_DISTRO/setup.bash && cd /root/Martha_ws && catkin_make"
+RUN /bin/bash -c "source /opt/ros/$ROS_DISTRO/setup.bash && cd /root/Martha_ws && catkin build"
 
 # Fazer o source do setup.bash do workspace
 RUN echo "source /root/Martha_ws/devel/setup.bash" >> ~/.bashrc

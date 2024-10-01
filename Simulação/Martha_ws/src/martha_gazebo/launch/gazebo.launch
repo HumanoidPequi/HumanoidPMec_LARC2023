@@ -17,7 +17,7 @@
   
   <!-- Spawn do modelo do robo no Gazebo -->
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" 
-  args="-param robot_description -urdf -model martha -x 0 -y 0 -z 0.284275 -R 0 -P 0 -Y 0 
+  args="-param robot_description -urdf -model martha -x 0 -y 0 -z 0.304275 -R 0 -P 0 -Y 0 
   -J pescoco_rZ 0
   -J cabeca_rX 0
   -J ombro_esquerdo_rX 0
